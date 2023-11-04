@@ -1,14 +1,16 @@
 # Minimum CMake requires version
 CMAKE_MINIMUM_REQUIRED(VERSION 3.14...3.16 FATAL_ERROR)
 
+INCLUDE(FeatureSummary)
+
 if (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
 FILE(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" APP_VERSION)
-MESSAGE(STATUS "Application version: ${APP_VERSION}")
+MESSAGE(STATUS "Library version: ${APP_VERSION}")
 
-PROJECT(QtHtml VERSION ${APP_VERSION} DESCRIPTION "Qt Html Library" HOMEPAGE_URL "https://github.com/overlapped/QtHtml" LANGUAGES C CXX)
+PROJECT(QtHtml VERSION ${APP_VERSION} DESCRIPTION "Qt Html Writer Library" HOMEPAGE_URL "https://github.com/overlapped/QtHtml" LANGUAGES C CXX)
 
 SET(CMAKE_C_STANDARD 99)
 SET(CMAKE_CXX_STANDARD 17)
@@ -145,3 +147,5 @@ add_executable(tests tests/main.cpp)
 target_link_libraries(tests PRIVATE ${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)
 target_include_directories(tests PUBLIC ./src)
 target_compile_definitions(tests PRIVATE QTHTML_LIBRARY)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
