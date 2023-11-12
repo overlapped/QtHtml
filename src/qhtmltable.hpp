@@ -55,7 +55,7 @@ public:
     QHtmlTableHead();
 
     QHtmlTableHead& operator << (QHtmlElement& element) = delete;
-    QHtmlTableHead& operator << (QHtmlTableRow& row);
+    QHtmlTableHead& operator << (const QHtmlTableRow& row);
 };
 
 class QTHTML_EXPORT QHtmlTableFooter : public QHtmlElement
@@ -64,7 +64,7 @@ public:
     QHtmlTableFooter();
 
     QHtmlTableFooter& operator << (QHtmlElement& element) = delete;
-    QHtmlTableFooter& operator << (QHtmlTableRow& row);
+    QHtmlTableFooter& operator << (const QHtmlTableRow& row);
 };
 
 class QTHTML_EXPORT QHtmlTableBody : public QHtmlElement
@@ -73,7 +73,7 @@ public:
     QHtmlTableBody();
 
     QHtmlTableBody& operator << (QHtmlElement& element) = delete;
-    QHtmlTableBody& operator << (QHtmlTableRow& row);
+    QHtmlTableBody& operator << (const QHtmlTableRow& row);
 };
 
 class QTHTML_EXPORT QHtmlTable : public QHtmlElement

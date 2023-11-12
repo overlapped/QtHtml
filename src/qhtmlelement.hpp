@@ -57,6 +57,11 @@ public:
 
     QString toString() const;
 
+    QString name() const;
+
+    const QVariant& content() const;
+    void setContent(const QVariant &content);
+
 protected:
     QHtmlElement();
     QTextStream& toString(QTextStream& ostream, const int indent = 0) const;

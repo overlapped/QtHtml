@@ -86,7 +86,7 @@ QHtmlTableHead::QHtmlTableHead() : QHtmlElement(HTML_TAG_TABLE_ROW_HEADER, QVari
 
 }
 
-QHtmlTableHead& QHtmlTableHead::operator << (QHtmlTableRow& row)
+QHtmlTableHead& QHtmlTableHead::operator << (const QHtmlTableRow& row)
 {
     children_.append(row);
     return *this;
@@ -97,13 +97,13 @@ QHtmlTableFooter::QHtmlTableFooter() : QHtmlElement(HTML_TAG_TABLE_FOOTER, QVari
 
 }
 
-QHtmlTableFooter& QHtmlTableFooter::operator << (QHtmlTableRow& row)
+QHtmlTableFooter& QHtmlTableFooter::operator << (const QHtmlTableRow &row)
 {
     children_.append(row);
     return *this;
 }
 
-QHtmlTableBody& QHtmlTableBody::operator << (QHtmlTableRow& row)
+QHtmlTableBody& QHtmlTableBody::operator << (const QHtmlTableRow &row)
 {
     children_.append(row);
     return *this;

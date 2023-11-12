@@ -104,13 +104,28 @@ QTextStream &QHtmlElement::toString(QTextStream &ostream, const int indent) cons
     return ostream;
 }
 
-QHtmlElement &QHtmlElement::removeAttribute(const QString &name)
+QHtmlElement &QHtmlElement::removeAttribute(const QString& name)
 {
     attributes_.remove(name);
     return *this;
 }
 
-void QHtmlElement::toStringOpen(QTextStream &ostream, const int indent) const
+const QVariant &QHtmlElement::content() const
+{
+    return content_;
+}
+
+void QHtmlElement::setContent(const QVariant& content)
+{
+    content_ = content;
+}
+
+QString QHtmlElement::name() const
+{
+    return name_;
+}
+
+void QHtmlElement::toStringOpen(QTextStream& ostream, const int indent) const
 {
     if (!name_.isEmpty())
     {

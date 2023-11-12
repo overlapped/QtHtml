@@ -41,7 +41,7 @@ int main()
          << (QHtmlTableRow() << QHtmlTableHeader("A") << QHtmlTableHeader("B"))
          << (QHtmlTableRow() << QHtmlTableDataCell("Cell 11") << QHtmlTableDataCell("Cell 12"))
          << (QHtmlTableRow() << QHtmlTableDataCell("Cell 21") << QHtmlTableDataCell("Cell 22"))
-         << (QHtmlTableRow() << QHtmlTableDataCell("Cell 31") << (QHtmlTableDataCell() << QHtmlAnchor("RASU", QUrl("http://www.rasu.ru")))));
+         << (QHtmlTableRow() << QHtmlTableDataCell("Cell 31") << (QHtmlTableDataCell() << QHtmlAnchor("Google", QUrl("http://www.google.com")))));
 
     main << QHtmlLabel("txt1", "The text") << QHtmlTextArea("textform", "This is text...").setRequired().setPlaceHolder("The text").setId("txt1");
 
