@@ -3,12 +3,12 @@
 
 namespace QtHtml {
 
-QHtmlAbbreviation::QHtmlAbbreviation() : QHtmlElement(HTML_TAG_ABBREVIATION, QVariant())
+Abbreviation::Abbreviation() : QHtmlElement(HTML_TAG_ABBREVIATION, QVariant())
 {
 
 }
 
-QHtmlAbbreviation::QHtmlAbbreviation(const QString &content) : QHtmlElement(HTML_TAG_ABBREVIATION, content)
+Abbreviation::Abbreviation(const QString &content) : QHtmlElement(HTML_TAG_ABBREVIATION, content)
 {
 
 }
