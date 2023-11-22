@@ -6,14 +6,24 @@
 namespace QtHtml {
 
 /**
- * \brief The QHtmlAddress class represents the \b \<address\>HTML element indicates that the enclosed
+ * \brief The QHtmlAddress class represents the \b \<address\>HTML element.
+ *
+ * The QHtmlAddress class represents the \b \<address\>HTML element indicates that the enclosed
  * HTML provides contact information for a person or people, or for an organization.
  */
-class QTHTML_EXPORT QHtmlAddress : public QHtmlElement
+class QTHTML_EXPORT Address : public QHtmlElement
 {
 public:
-    QHtmlAddress();
-    explicit QHtmlAddress(const QString &content);
+    /**
+     * \brief Default constructor create the object.
+     */
+    Address();
+
+    /**
+     * \brief Default constructor create the object with \c content.
+     * \param[in] content - the content.
+     */
+    explicit Address(const QString &content);
 };
 
 }

@@ -3,12 +3,12 @@
 
 namespace QtHtml {
 
-QHtmlAddress::QHtmlAddress() : QHtmlElement(HTML_TAG_ADDRESS, QVariant())
+Address::Address() : QHtmlElement(HTML_TAG_ADDRESS, QVariant())
 {
 
 }
 
-QHtmlAddress::QHtmlAddress(const QString &content) : QHtmlElement(HTML_TAG_ADDRESS, content)
+Address::Address(const QString &content) : QHtmlElement(HTML_TAG_ADDRESS, content)
 {
 
 }
