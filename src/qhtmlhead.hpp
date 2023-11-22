@@ -7,6 +7,8 @@
 #include "qhtmlmeta.hpp"
 #include "qhtmllink.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlHead : public QHtmlElement
 {
 public:
@@ -19,5 +21,7 @@ public:
     QHtmlHead& operator << (const QHtmlMeta& meta);
     QHtmlHead& operator << (const QHtmlLink& link);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_HEAD__

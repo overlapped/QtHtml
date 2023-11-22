@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlmeta.hpp"
 
+namespace QtHtml {
+
 QString HttpEquivToString(QHtmlMeta::HttpEquiv value)
 {
     QString result;
@@ -41,4 +43,6 @@ QHtmlMeta &QHtmlMeta::setHttpEquiv(HttpEquiv value, const QString& content)
     addAttribute("http-equiv", HttpEquivToString(value));
     addAttribute("content", content);
     return *this;
+}
+
 }

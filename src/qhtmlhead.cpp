@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlhead.hpp"
 
+namespace QtHtml {
+
 QHtmlHead::QHtmlHead() : QHtmlElement(HTML_TAG_HEAD, QVariant())
 {
 
@@ -28,4 +30,6 @@ QHtmlHead& QHtmlHead::operator << (const QHtmlLink& link)
 {
     children_.append(link);
     return *this;
+}
+
 }

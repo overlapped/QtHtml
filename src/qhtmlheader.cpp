@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlheader.hpp"
 
+namespace QtHtml {
+
 QHtmlHeader::QHtmlHeader() : QHtmlElement(HTML_TAG_HEADER, QVariant())
 {
 
@@ -33,5 +35,7 @@ QHtmlHeader5::QHtmlHeader5(const QString &content) : QHtmlElement(HTML_TAG_HEADE
 
 QHtmlHeader6::QHtmlHeader6(const QString &content) : QHtmlElement(HTML_TAG_HEADER6, content)
 {
+
+}
 
 }

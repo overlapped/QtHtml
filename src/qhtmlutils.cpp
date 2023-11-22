@@ -1,17 +1,35 @@
 #include "qhtmlutils.hpp"
 
-QString QHtmlUtils::TargetToString(QHtmlElement::Target value)
+namespace QtHtml {
+
+QString QHtmlUtils::TargetToString(Target value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlElement::Target::Self: result = "_self"; break;
-        case QHtmlElement::Target::Parent: result = "_parent"; break;
-        case QHtmlElement::Target::Blank: result = "_blank"; break;
-        case QHtmlElement::Target::Top: result = "_self"; break;
+        case Target::Self: result = "_self"; break;
+        case Target::Parent: result = "_parent"; break;
+        case Target::Blank: result = "_blank"; break;
+        case Target::Top: result = "_self"; break;
         default:
             break;
     }
 
     return result;
+}
+
+QString QHtmlUtils::FormMethodToString(FormMethod value) {
+    QString result;
+
+    switch (value) {
+        case FormMethod::Post: result = "post"; break;
+        case FormMethod::Get: result = "get"; break;
+        case FormMethod::Dialog: result = "dialog"; break;
+        default:
+            break;
+    }
+
+    return result;
+}
+
 }

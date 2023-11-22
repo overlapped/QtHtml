@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlarea.hpp"
 
+namespace QtHtml {
+
 QString ShapeToString(QHtmlArea::Shape value)
 {
     QString result;
@@ -38,4 +40,6 @@ QHtmlArea &QHtmlArea::setShape(Shape value)
 {
     addAttribute("alt", ShapeToString(value));
     return *this;
+}
+
 }

@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlMeter : public QHtmlElement
 {
 public:
@@ -13,5 +15,7 @@ public:
     QHtmlMeter& setOptimum(unsigned int value);
     QHtmlMeter& setForm(const QString& formId);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_METER__

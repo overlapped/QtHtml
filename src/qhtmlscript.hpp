@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlScript : public QHtmlElement
 {
 public:
@@ -15,5 +17,7 @@ public:
     QHtmlScript& setNoModule(bool isOn = true);
     QHtmlScript& setType(const QString& value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_SCRIPT__

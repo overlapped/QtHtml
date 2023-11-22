@@ -2,19 +2,7 @@
 #include "qhtmlbutton.hpp"
 #include "qhtmlutils.hpp"
 
-QString FormMethodToString(QHtmlButton::FormMethod value) {
-    QString result;
-
-    switch (value) {
-        case QHtmlButton::FormMethod::Post: result = "post"; break;
-        case QHtmlButton::FormMethod::Get: result = "get"; break;
-        case QHtmlButton::FormMethod::Dialog: result = "dialog"; break;
-        default:
-            break;
-    }
-
-    return result;
-}
+namespace QtHtml {
 
 QString PopOverTargetActionToString(QHtmlButton::PopOverTargetAction value) {
     QString result;
@@ -75,7 +63,7 @@ QHtmlButton &QHtmlButton::setFormAction(const QUrl &value)
 
 QHtmlButton &QHtmlButton::setFormMethod(FormMethod value)
 {
-    addAttribute(HTML_ATTR_BUTTON_FORM_METHOD, FormMethodToString(value));
+    addAttribute(HTML_ATTR_BUTTON_FORM_METHOD, QHtmlUtils::FormMethodToString(value));
     return *this;
 }
 
@@ -121,3 +109,4 @@ QHtmlButton &QHtmlButton::setValue(const QString &value)
     return *this;
 }
 
+}

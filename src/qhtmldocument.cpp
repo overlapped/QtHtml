@@ -2,6 +2,8 @@
 #include "qhtmltitle.hpp"
 #include "qhtmlstyle.hpp"
 
+namespace QtHtml {
+
 QTextStream& operator<< (QTextStream& ostream, const QHtmlDocument& element)
 {
     return element.toString(ostream);
@@ -59,4 +61,6 @@ QHtmlDocument& QHtmlDocument::operator << (const QHtmlElement &element)
 {
     body_ << element;
     return *this;
+}
+
 }

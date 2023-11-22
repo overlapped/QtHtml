@@ -3,6 +3,8 @@
 
 int main()
 {
+    using namespace QtHtml;
+
     QHtmlDocument doc("Welcome to Qt Html!");
     doc.setLang("en");
     QHtmlHead& head = doc.head();

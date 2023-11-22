@@ -8,6 +8,21 @@
 
 #include "QtHtml_global.hpp"
 
+namespace QtHtml {
+
+enum class Target {
+    Self,
+    Blank,
+    Parent,
+    Top
+};
+
+enum class FormMethod {
+    Post,
+    Get,
+    Dialog
+};
+
 class QTHTML_EXPORT QHtmlElement
 {
 public:
@@ -26,13 +41,6 @@ public:
         LTR,
         RTL,
         Auto
-    };
-
-    enum class Target {
-        Self,
-        Blank,
-        Parent,
-        Top
     };
 
     explicit QHtmlElement(const QString &name, const QVariant &content);
@@ -79,6 +87,8 @@ private:
     void toStringClose(QTextStream& ostream, const int indent = 2) const;
 };
 
-inline QTextStream& operator << (QTextStream& ostream, const QHtmlElement& element);
+inline QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlElement& element);
+
+}
 
 #endif // #ifndef __Q_HTML_ELEMENT__

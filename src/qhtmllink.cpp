@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmllink.hpp"
 
+namespace QtHtml {
+
 QString CrossOriginToString(QHtmlLink::CrossOrigin value)
 {
     QString result;
@@ -38,4 +40,6 @@ QHtmlLink &QHtmlLink::setType(const QString &value)
 {
     addAttribute("type", value);
     return *this;
+}
+
 }

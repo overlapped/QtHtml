@@ -3,11 +3,15 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlDiv : public QHtmlElement
 {
 public:
     QHtmlDiv();
     explicit QHtmlDiv(const QString &classStyle);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_DIV__

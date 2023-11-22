@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlprogress.hpp"
 
+namespace QtHtml {
+
 QHtmlProgress::QHtmlProgress(unsigned int value, unsigned int max, const QString &content) : QHtmlElement(HTML_TAG_PROGRESS, content)
 {
     Q_ASSERT(value <= max);
@@ -16,4 +18,6 @@ QHtmlProgress &QHtmlProgress::setMax(unsigned int value)
 
     addAttribute("max", value);
     return *this;
+}
+
 }

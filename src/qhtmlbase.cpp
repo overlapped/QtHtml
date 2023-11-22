@@ -2,6 +2,8 @@
 #include "qhtmlbase.hpp"
 #include "qhtmlutils.hpp"
 
+namespace QtHtml {
+
 QHtmlBase::QHtmlBase(const QString &url, Target value) : QHtmlElement(HTML_TAG_BASE, QVariant())
 {
     addAttribute(HTML_ATTR_BASE_HREF, url);
@@ -9,3 +11,4 @@ QHtmlBase::QHtmlBase(const QString &url, Target value) : QHtmlElement(HTML_TAG_B
     selfClosed_ = true;
 }
 
+}

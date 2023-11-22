@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlProgress : public QHtmlElement
 {
 public:
@@ -10,5 +12,7 @@ public:
 
     QHtmlProgress& setMax(unsigned int value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_PROGRESS__

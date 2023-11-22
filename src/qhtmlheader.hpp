@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlHeader : public QHtmlElement
 {
 public:
@@ -44,5 +46,7 @@ class QTHTML_EXPORT QHtmlHeader6 : public QHtmlElement
 public:
     explicit QHtmlHeader6(const QString &content);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_HEADER__

@@ -5,6 +5,8 @@
 #include "qhtmlhead.hpp"
 #include "qhtmlbody.hpp"
 
+namespace QtHtml {
+
 class QHtmlDocument : public QHtmlElement
 {
 public:
@@ -29,6 +31,8 @@ private:
     QHtmlBody& body_;
 };
 
-QTextStream& operator << (QTextStream& ostream, const QHtmlDocument& element);
+QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlDocument& element);
+
+}
 
 #endif // #ifndef __Q_HTML_DOCUMENT__

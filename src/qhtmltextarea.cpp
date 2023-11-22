@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmltextarea.hpp"
 
+namespace QtHtml {
+
 QString WrapModeToString(QHtmlTextArea::WrapMode value)
 {
     QString result;
@@ -101,4 +103,6 @@ QHtmlTextArea &QHtmlTextArea::setWrapMode(WrapMode value)
 {
     addAttribute("wrap", WrapModeToString(value));
     return *this;
+}
+
 }

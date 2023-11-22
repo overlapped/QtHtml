@@ -3,11 +3,15 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlNav : public QHtmlElement
 {
 public:
     QHtmlNav();
     explicit QHtmlNav(const QString& classStyle);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_NAV__

@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlscript.hpp"
 
+namespace QtHtml {
+
 QHtmlScript::QHtmlScript(const QString &srcFile, const QString &content) : QHtmlElement(HTML_TAG_SCRIPT, content)
 {
     if (!srcFile.isEmpty())
@@ -64,4 +66,6 @@ QHtmlScript &QHtmlScript::setNoModule(bool isOn)
 QHtmlScript &QHtmlScript::setType(const QString &value)
 {
     return *this;
+}
+
 }

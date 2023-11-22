@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlDetails : public QHtmlElement
 {
 public:
@@ -15,5 +17,7 @@ class QTHTML_EXPORT QHtmlSummary : public QHtmlElement
 public:
     explicit QHtmlSummary(const QString &content);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_SUMMARY__

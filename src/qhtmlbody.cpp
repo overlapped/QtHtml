@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlbody.hpp"
 
+namespace QtHtml {
+
 QHtmlBody::QHtmlBody() : QHtmlElement(HTML_TAG_BODY, QVariant())
 {
 
@@ -114,3 +116,4 @@ QHtmlBody &QHtmlBody::setOnUnload(const QString &value)
     return *this;
 }
 
+}

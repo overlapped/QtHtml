@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlmeter.hpp"
 
+namespace QtHtml {
+
 QHtmlMeter::QHtmlMeter(unsigned int value, unsigned int min, unsigned int max, const QString &content) : QHtmlElement(HTML_TAG_METER, content)
 {
     Q_ASSERT(value >= min);
@@ -34,4 +36,6 @@ QHtmlMeter &QHtmlMeter::setForm(const QString &formId)
 {
     addAttribute("form", formId);
     return *this;
+}
+
 }

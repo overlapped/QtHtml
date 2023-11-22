@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlListItem : public QHtmlElement
 {
 public:
@@ -21,5 +23,7 @@ public:
     QHtmlList& operator << (const QHtmlElement& element);
     QHtmlList& operator << (const QHtmlListItem& item);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_LIST__

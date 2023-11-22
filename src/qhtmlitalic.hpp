@@ -3,10 +3,14 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlItalic : public QHtmlElement
 {
 public:
     explicit QHtmlItalic(const QString &content);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_ITALIC__

@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlLink : public QHtmlElement
 {
 public:
@@ -16,5 +18,7 @@ public:
     QHtmlLink& setIntegrity(const QString& content);
     QHtmlLink& setType(const QString& value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_LINK__

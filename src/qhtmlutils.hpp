@@ -5,10 +5,15 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlUtils
 {
 public:
-    static QString TargetToString(QHtmlElement::Target value);
+    static QString TargetToString(Target value);
+    static QString FormMethodToString(FormMethod value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_UTILS__

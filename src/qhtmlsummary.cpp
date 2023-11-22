@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmlsummary.hpp"
 
+namespace QtHtml {
+
 QHtmlDetails::QHtmlDetails(const QString &content) : QHtmlElement(HTML_TAG_DETAILS, content)
 {
     if (!content.isEmpty())
@@ -24,3 +26,4 @@ QHtmlSummary::QHtmlSummary(const QString &content) : QHtmlElement(HTML_TAG_SUMMA
 
 }
 
+}

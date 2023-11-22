@@ -6,6 +6,8 @@
 #include "qhtmlbody.hpp"
 #include "qhtmlhead.hpp"
 
+namespace QtHtml {
+
 QHtmlElement::QHtmlElement(const QString &name, const QVariant &content) : name_(name), content_(content), selfClosed_(false)
 {
 
@@ -187,6 +189,8 @@ void QHtmlElement::toStringClose(QTextStream &ostream, const int indent) const
     }
 }
 
-inline QTextStream& operator << (QTextStream& ostream, const QHtmlElement& element) {
+inline QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlElement &element) {
     return element.toString(ostream);
+}
+
 }

@@ -2,41 +2,52 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.14...3.16 FATAL_ERROR)
 
 INCLUDE(FeatureSummary)
+INCLUDE(GenerateExportHeader)
 
-if (POLICY CMP0071)
+IF (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
-endif()
+ENDIF()
 
 FILE(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" APP_VERSION)
 MESSAGE(STATUS "Library version: ${APP_VERSION}")
 
 PROJECT(QtHtml VERSION ${APP_VERSION} DESCRIPTION "Qt Html Writer Library" HOMEPAGE_URL "https://github.com/overlapped/QtHtml" LANGUAGES C CXX)
 
-SET(CMAKE_C_STANDARD 99)
-SET(CMAKE_CXX_STANDARD 17)
-
-SET(CMAKE_C_EXTENSIONS OFF)
-SET(CMAKE_C_STANDARD_REQUIRED ON)
-SET(CMAKE_CXX_EXTENSIONS OFF)
-SET(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 MESSAGE(STATUS "Platform detected: ${CMAKE_SYSTEM_PROCESSOR}")
 MESSAGE(STATUS "OS detected: ${CMAKE_SYSTEM_NAME} ${CMAKE_SYSTEM_VERSION}")
 MESSAGE(STATUS "CXX Compiler detected: ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+SET(CMAKE_AUTOUIC ON)
+SET(CMAKE_AUTOMOC ON)
+SET(CMAKE_AUTORCC ON)
+SET(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_C_STANDARD 99)
+
+SET(CMAKE_C_EXTENSIONS OFF)
+SET(CMAKE_C_STANDARD_REQUIRED ON)
+SET(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt5 COMPONENTS Core REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
+FIND_PACKAGE(QT NAMES Qt5 COMPONENTS Core REQUIRED)
+FIND_PACKAGE(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-option(BUILD_EXAMPLE "Enable build example" OFF)
+OPTION(BUILD_EXAMPLE "Enable build example" OFF)
+OPTION(BUILD_TESTS "Enable build tests" OFF)
+OPTION(BUILD_DOC "Enable build documentation" OFF)
 
-set(HEADERS
+IF(BUILD_DOC)
+    FIND_PACKAGE(Doxygen REQUIRED)
+    IF(DOXYGEN_FOUND)
+        add_custom_target(doc ALL ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile
+          WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc
+          COMMENT "Generating API documentation with Doxygen"
+          VERBATIM
+        )
+    ENDIF(DOXYGEN_FOUND)
+ENDIF(BUILD_DOC)
+
+SET(HEADERS
     QtHtml_global.hpp
     src/qhtmlabbreviation.hpp
     src/qhtmladdress.hpp
@@ -86,7 +97,7 @@ set(HEADERS
     src/qhtmltitle.hpp
     src/qhtmlutils.hpp)
 
-set(SOURCES
+SET(SOURCES
     src/qhtmlabbreviation.cpp
     src/qhtmladdress.cpp
     src/qhtmlanchor.cpp
@@ -132,17 +143,18 @@ set(SOURCES
     src/qhtmlutils.cpp
     )
 
-add_library(QtHtml SHARED ${SOURCES} ${HEADERS})
-set_target_properties(QtHtml PROPERTIES
+add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
+generate_export_header(${PROJECT_NAME})
+set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS NO)
 set_source_files_properties(${SOURCES} PROPERTIES LANGUAGE CXX)
 
-target_include_directories(QtHtml PUBLIC ./src)
-target_link_libraries(QtHtml PRIVATE Qt${QT_VERSION_MAJOR}::Core)
-target_compile_definitions(QtHtml PRIVATE QTHTML_LIBRARY)
-target_compile_options(QtHtml PRIVATE -fstack-protector-all)
+target_include_directories(${PROJECT_NAME} PUBLIC ./src)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Core)
+target_compile_definitions(${PROJECT_NAME} PRIVATE QTHTML_LIBRARY)
+target_compile_options(${PROJECT_NAME} PRIVATE -fstack-protector-all)
 
 if (BUILD_EXAMPLE)
 add_executable(example example/main.cpp)
@@ -151,8 +163,11 @@ target_include_directories(example PUBLIC ./src)
 target_compile_definitions(example PRIVATE QTHTML_LIBRARY)
 endif()
 
+if (BUILD_TESTS)
 add_executable(tests tests/main.cpp)
 target_link_libraries(tests PRIVATE ${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)
 target_include_directories(tests PUBLIC ./src)
+target_compile_definitions(tests PRIVATE QTHTML_LIBRARY)
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlBody : public QHtmlElement
 {
 public:
@@ -27,5 +29,7 @@ public:
     QHtmlBody& setOnUndo(const QString &value);
     QHtmlBody& setOnUnload(const QString &value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_BODY__

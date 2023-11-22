@@ -3,6 +3,8 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlTextArea : public QHtmlElement
 {
 public:
@@ -27,5 +29,7 @@ public:
     QHtmlTextArea& setRequired(bool isOn = true);
     QHtmlTextArea& setWrapMode(WrapMode value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_TEXTAREA__

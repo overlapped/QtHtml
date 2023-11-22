@@ -4,6 +4,8 @@
 #include "qhtmlelement.hpp"
 #include "qhtmlcaption.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlTableHeader : public QHtmlElement
 {
 public:
@@ -83,8 +85,13 @@ public:
 
     QHtmlTable& operator << (QHtmlElement& element) = delete;
 
+    QHtmlTable &operator << (const QHtmlTableBody &body);
+    QHtmlTable &operator << (const QHtmlTableHead &head);
+    QHtmlTable &operator << (const QHtmlTableFooter &footer);
     QHtmlTable& operator << (const QHtmlTableRow& row);
     QHtmlTable& operator << (const QHtmlCaption& caption);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_TABLE__

@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmllist.hpp"
 
+namespace QtHtml {
+
 QHtmlList::QHtmlList(bool isOrdered) : QHtmlElement(isOrdered ? HTML_TAG_ORDERED_LIST : HTML_TAG_UNORDERED_LIST, QVariant())
 {
     
@@ -37,4 +39,6 @@ QHtmlListItem& QHtmlListItem::operator << (const QHtmlElement& element)
 {
     children_.append(element);
     return *this;
+}
+
 }

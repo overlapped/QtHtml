@@ -1,6 +1,8 @@
 #include "qhtmldefines.hpp"
 #include "qhtmltable.hpp"
 
+namespace QtHtml {
+
 QHtmlTableRow::QHtmlTableRow() : QHtmlElement(HTML_TAG_TABLE_ROW, QVariant())
 {
 
@@ -148,6 +150,24 @@ QHtmlTable::QHtmlTable() : QHtmlElement(HTML_TAG_TABLE, QVariant())
 
 }
 
+QHtmlTable &QHtmlTable::operator << (const QHtmlTableBody &body)
+{
+    children_.append(body);
+    return *this;
+}
+
+QHtmlTable &QHtmlTable::operator << (const QHtmlTableHead &head)
+{
+    children_.append(head);
+    return *this;
+}
+
+QHtmlTable &QHtmlTable::operator << (const QHtmlTableFooter &footer) {
+    children_.append(footer);
+    return *this;
+}
+
+
 QHtmlTable& QHtmlTable::operator << (const QHtmlTableRow& row)
 {
     children_.append(row);
@@ -158,4 +178,6 @@ QHtmlTable& QHtmlTable::operator << (const QHtmlCaption& caption)
 {
     children_.append(caption);
     return *this;
+}
+
 }

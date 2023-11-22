@@ -3,15 +3,11 @@
 
 #include "qhtmlelement.hpp"
 
+namespace QtHtml {
+
 class QTHTML_EXPORT QHtmlButton : public QHtmlElement
 {
 public:
-    enum class FormMethod {
-        Post,
-        Get,
-        Dialog
-    };
-
     enum class PopOverTargetAction {
         Hide,
         Show,
@@ -39,5 +35,7 @@ public:
     QHtmlButton& setType(Type value);
     QHtmlButton& setValue(const QString &value);
 };
+
+}
 
 #endif // #ifndef __Q_HTML_BUTTON__

@@ -2,6 +2,8 @@
 #include "qhtmlanchor.hpp"
 #include "qhtmlutils.hpp"
 
+namespace QtHtml {
+
 QHtmlAnchor::QHtmlAnchor() : QHtmlElement(HTML_TAG_ANCHOR, QVariant())
 {
 
@@ -39,4 +41,6 @@ QHtmlAnchor& QHtmlAnchor::setTarget(Target value)
 {
     addAttribute(HTML_ATTR_ANCHOR_TARGET, QHtmlUtils::TargetToString(value));
     return *this;
+}
+
 }
