@@ -1,3 +1,5 @@
+[![QtHtml 0.1.0.3](https://github.com/overlapped/QtHtml/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/overlapped/QtHtml/actions/workflows/build.yml)
+
 # QtHtmlWriter
 Qt Html Writer Library
 
