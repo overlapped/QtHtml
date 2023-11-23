@@ -164,10 +164,8 @@ target_compile_definitions(example PRIVATE QTHTML_LIBRARY)
 endif()
 
 if (BUILD_TESTS)
-add_executable(tests tests/main.cpp)
-target_link_libraries(tests PRIVATE ${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)
-target_include_directories(tests PUBLIC ./src)
-target_compile_definitions(tests PRIVATE QTHTML_LIBRARY)
+enable_testing()
+add_subdirectory(tests)
 endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
