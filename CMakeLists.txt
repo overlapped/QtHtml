@@ -34,7 +34,7 @@ FIND_PACKAGE(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 OPTION(BUILD_EXAMPLE "Enable build example" OFF)
 OPTION(BUILD_TESTS "Enable build tests" OFF)
-OPTION(BUILD_DOC "Enable build documentation" ON)
+OPTION(BUILD_DOC "Enable build documentation" OFF)
 
 IF(BUILD_DOC)
     FIND_PACKAGE(Doxygen REQUIRED)
