@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlSpan : public QHtmlElement
+class QTHTML_EXPORT Span : public Element
 {
 public:
-    explicit QHtmlSpan(const QString &content);
+    explicit Span(const QString &content);
 };
 
 }

@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlLabel : public QHtmlElement
+class QTHTML_EXPORT Label : public Element
 {
 public:
-    explicit QHtmlLabel(const QString& control, const QString &content);
+    explicit Label(const QString& control, const QString &content);
 };
 
 }

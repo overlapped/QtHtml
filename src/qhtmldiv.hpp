@@ -5,11 +5,11 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlDiv : public QHtmlElement
+class QTHTML_EXPORT Div : public Element
 {
 public:
-    QHtmlDiv();
-    explicit QHtmlDiv(const QString &classStyle);
+    Div();
+    explicit Div(const QString &classStyle);
 };
 
 }

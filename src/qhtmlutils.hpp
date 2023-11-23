@@ -7,7 +7,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlUtils
+class QTHTML_EXPORT Utils
 {
 public:
     static QString TargetToString(Target value);

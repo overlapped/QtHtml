@@ -3,12 +3,12 @@
 
 namespace QtHtml {
 
-QHtmlStyle::QHtmlStyle() : QHtmlElement(HTML_TAG_STYLE, QVariant())
+Style::Style() : Element(HTML_TAG_STYLE, QVariant())
 {
 
 }
 
-QHtmlStyle::QHtmlStyle(const QString &content) : QHtmlElement(HTML_TAG_STYLE, content)
+Style::Style(const QString &content) : Element(HTML_TAG_STYLE, content)
 {
 
 }

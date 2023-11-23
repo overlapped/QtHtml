@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlItalic::QHtmlItalic(const QString &content) : QHtmlElement(HTML_TAG_ITALIC, content)
+Italic::Italic(const QString &content) : Element(HTML_TAG_ITALIC, content)
 {
 
 }

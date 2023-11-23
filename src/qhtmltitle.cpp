@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlTitle::QHtmlTitle(const QString &content) : QHtmlElement(HTML_TAG_TITLE, content)
+Title::Title(const QString &content) : Element(HTML_TAG_TITLE, content)
 {
 
 }

@@ -3,13 +3,13 @@
 
 namespace QtHtml {
 
-QString WrapModeToString(QHtmlTextArea::WrapMode value)
+QString WrapModeToString(TextArea::WrapMode value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlTextArea::WrapMode::Hard: result = "hard"; break;
-        case QHtmlTextArea::WrapMode::Soft: result = "soft"; break;
+        case TextArea::WrapMode::Hard: result = "hard"; break;
+        case TextArea::WrapMode::Soft: result = "soft"; break;
         default:
             break;
     }
@@ -17,7 +17,7 @@ QString WrapModeToString(QHtmlTextArea::WrapMode value)
     return result;
 }
 
-QHtmlTextArea::QHtmlTextArea(const QString &name, const QString &content, unsigned int rows, unsigned int cols) : QHtmlElement(HTML_TAG_TEXTAREA, content)
+TextArea::TextArea(const QString &name, const QString &content, unsigned int rows, unsigned int cols) : Element(HTML_TAG_TEXTAREA, content)
 {
     addAttribute("name", name);
     if (rows > 0)
@@ -30,67 +30,67 @@ QHtmlTextArea::QHtmlTextArea(const QString &name, const QString &content, unsign
     }
 }
 
-QHtmlTextArea &QHtmlTextArea::setAutoComplete(bool isOn)
+TextArea &TextArea::setAutoComplete(bool isOn)
 {
     addAttribute("autocomplete", isOn ? "true" : "false");
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setAutoFocus(bool isOn)
+TextArea &TextArea::setAutoFocus(bool isOn)
 {
     addAttribute("autofocus", isOn ? "true" : "false");
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setRows(unsigned int rows)
+TextArea &TextArea::setRows(unsigned int rows)
 {
     addAttribute("rows", rows);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setColumns(unsigned int cols)
+TextArea &TextArea::setColumns(unsigned int cols)
 {
     addAttribute("cols", cols);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setDisabled(bool isOn)
+TextArea &TextArea::setDisabled(bool isOn)
 {
     addAttribute("disabled", isOn ? "true" : "false");
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setForm(const QString &formId)
+TextArea &TextArea::setForm(const QString &formId)
 {
     addAttribute("form", formId);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setMinLength(unsigned int len)
+TextArea &TextArea::setMinLength(unsigned int len)
 {
     addAttribute("minlength", len);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setMaxLength(unsigned int len)
+TextArea &TextArea::setMaxLength(unsigned int len)
 {
     addAttribute("maxlength", len);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setPlaceHolder(const QString &value)
+TextArea &TextArea::setPlaceHolder(const QString &value)
 {
     addAttribute("placeholder", value);
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setReadOnly(bool isOn)
+TextArea &TextArea::setReadOnly(bool isOn)
 {
     addAttribute("readonly", isOn ? "true" : "false");
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setRequired(bool isOn)
+TextArea &TextArea::setRequired(bool isOn)
 {
     if (isOn)
     {
@@ -99,7 +99,7 @@ QHtmlTextArea &QHtmlTextArea::setRequired(bool isOn)
     return *this;
 }
 
-QHtmlTextArea &QHtmlTextArea::setWrapMode(WrapMode value)
+TextArea &TextArea::setWrapMode(WrapMode value)
 {
     addAttribute("wrap", WrapModeToString(value));
     return *this;

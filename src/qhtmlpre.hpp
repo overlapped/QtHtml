@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlPre : public QHtmlElement
+class QTHTML_EXPORT Pre : public Element
 {
 public:
-    explicit QHtmlPre(const QString &content);
+    explicit Pre(const QString &content);
 };
 
 }

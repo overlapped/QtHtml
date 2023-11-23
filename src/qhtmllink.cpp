@@ -3,13 +3,13 @@
 
 namespace QtHtml {
 
-QString CrossOriginToString(QHtmlLink::CrossOrigin value)
+QString CrossOriginToString(Link::CrossOrigin value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlLink::CrossOrigin::Anonymous: result = "anonymous"; break;
-        case QHtmlLink::CrossOrigin::UseCredentials: result = "use-credentials"; break;
+        case Link::CrossOrigin::Anonymous: result = "anonymous"; break;
+        case Link::CrossOrigin::UseCredentials: result = "use-credentials"; break;
         default:
             break;
     }
@@ -17,26 +17,26 @@ QString CrossOriginToString(QHtmlLink::CrossOrigin value)
     return result;
 }
 
-QHtmlLink::QHtmlLink(const QString &rel, const QString &url) : QHtmlElement(HTML_TAG_LINK, QVariant())
+Link::Link(const QString &rel, const QString &url) : Element(HTML_TAG_LINK, QVariant())
 {
     selfClosed_ = true;
     addAttribute("rel", rel);
     addAttribute("href", url);
 }
 
-QHtmlLink &QHtmlLink::setCrossOrigin(CrossOrigin value, const QString &content)
+Link &Link::setCrossOrigin(CrossOrigin value, const QString &content)
 {
     addAttribute("crossorigin", content);
     return *this;
 }
 
-QHtmlLink &QHtmlLink::setIntegrity(const QString &content)
+Link &Link::setIntegrity(const QString &content)
 {
     addAttribute("integrity", content);
     return *this;
 }
 
-QHtmlLink &QHtmlLink::setType(const QString &value)
+Link &Link::setType(const QString &value)
 {
     addAttribute("type", value);
     return *this;

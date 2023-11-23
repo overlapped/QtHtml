@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlStrong : public QHtmlElement
+class QTHTML_EXPORT Strong : public Element
 {
 public:
-    explicit QHtmlStrong(const QString &content);
+    explicit Strong(const QString &content);
 };
 
 }

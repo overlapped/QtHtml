@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlBase : public QHtmlElement
+class QTHTML_EXPORT Base : public Element
 {
 public:
-    QHtmlBase(const QString &url, Target value);
+    Base(const QString &url, Target value);
 };
 
 }

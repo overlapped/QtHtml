@@ -3,37 +3,37 @@
 
 namespace QtHtml {
 
-QHtmlHeader::QHtmlHeader() : QHtmlElement(HTML_TAG_HEADER, QVariant())
+Header::Header() : Element(HTML_TAG_HEADER, QVariant())
 {
 
 }
 
-QHtmlHeader1::QHtmlHeader1(const QString &content) : QHtmlElement(HTML_TAG_HEADER1, content)
+Header1::Header1(const QString &content) : Element(HTML_TAG_HEADER1, content)
 {
 
 }
 
-QHtmlHeader2::QHtmlHeader2(const QString &content) : QHtmlElement(HTML_TAG_HEADER2, content)
+Header2::Header2(const QString &content) : Element(HTML_TAG_HEADER2, content)
 {
 
 }
 
-QHtmlHeader3::QHtmlHeader3(const QString &content) : QHtmlElement(HTML_TAG_HEADER3, content)
+Header3::Header3(const QString &content) : Element(HTML_TAG_HEADER3, content)
 {
 
 }
 
-QHtmlHeader4::QHtmlHeader4(const QString &content) : QHtmlElement(HTML_TAG_HEADER4, content)
+Header4::Header4(const QString &content) : Element(HTML_TAG_HEADER4, content)
 {
 
 }
 
-QHtmlHeader5::QHtmlHeader5(const QString &content) : QHtmlElement(HTML_TAG_HEADER5, content)
+Header5::Header5(const QString &content) : Element(HTML_TAG_HEADER5, content)
 {
 
 }
 
-QHtmlHeader6::QHtmlHeader6(const QString &content) : QHtmlElement(HTML_TAG_HEADER6, content)
+Header6::Header6(const QString &content) : Element(HTML_TAG_HEADER6, content)
 {
 
 }

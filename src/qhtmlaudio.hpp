@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QHtmlAudio : public QHtmlElement
+class Audio : public Element
 {
 public:
 };

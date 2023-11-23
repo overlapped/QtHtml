@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlMeta : public QHtmlElement
+class QTHTML_EXPORT Meta : public Element
 {
 public:
     enum class HttpEquiv {
@@ -16,11 +16,11 @@ public:
         Refresh
     };
 
-    QHtmlMeta();
-    QHtmlMeta(const QString& charset);
-    QHtmlMeta(const QString& name, const QString& content);
+    Meta();
+    Meta(const QString& charset);
+    Meta(const QString& name, const QString& content);
 
-    QHtmlMeta& setHttpEquiv(HttpEquiv value, const QString &content);
+    Meta& setHttpEquiv(HttpEquiv value, const QString &content);
 };
 
 }

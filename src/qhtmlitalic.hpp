@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlItalic : public QHtmlElement
+class QTHTML_EXPORT Italic : public Element
 {
 public:
-    explicit QHtmlItalic(const QString &content);
+    explicit Italic(const QString &content);
 };
 
 }

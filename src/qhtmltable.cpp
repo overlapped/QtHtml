@@ -3,38 +3,38 @@
 
 namespace QtHtml {
 
-QHtmlTableRow::QHtmlTableRow() : QHtmlElement(HTML_TAG_TABLE_ROW, QVariant())
+TableRow::TableRow() : Element(HTML_TAG_TABLE_ROW, QVariant())
 {
 
 }
 
-QHtmlTableRow& QHtmlTableRow::operator << (const QHtmlTableHeader& col)
-{
-    children_.append(col);
-    return *this;
-}
-
-QHtmlTableRow& QHtmlTableRow::operator << (const QHtmlTableDataCell& col)
+TableRow& TableRow::operator << (const TableHeader& col)
 {
     children_.append(col);
     return *this;
 }
 
-QHtmlTableRow& QHtmlTableRow::setStyle(const QString& value)
+TableRow& TableRow::operator << (const TableDataCell& col)
 {
-    QHtmlElement::setStyle(value);
+    children_.append(col);
     return *this;
 }
 
-QString ScopeToString(QHtmlTableHeader::Scope value)
+TableRow& TableRow::setStyle(const QString& value)
+{
+    Element::setStyle(value);
+    return *this;
+}
+
+QString ScopeToString(TableHeader::Scope value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlTableHeader::Scope::Row: result = "row"; break;
-        case QHtmlTableHeader::Scope::Col: result = "col"; break;
-        case QHtmlTableHeader::Scope::RowGroup: result = "rowgroup"; break;
-        case QHtmlTableHeader::Scope::ColGroup: result = "colgroup"; break;
+        case TableHeader::Scope::Row: result = "row"; break;
+        case TableHeader::Scope::Col: result = "col"; break;
+        case TableHeader::Scope::RowGroup: result = "rowgroup"; break;
+        case TableHeader::Scope::ColGroup: result = "colgroup"; break;
         default:
             break;
     }
@@ -42,139 +42,139 @@ QString ScopeToString(QHtmlTableHeader::Scope value)
     return result;
 }
 
-QHtmlTableHeader::QHtmlTableHeader(const QString &content) : QHtmlElement(HTML_TAG_TABLE_HEADER, content)
+TableHeader::TableHeader(const QString &content) : Element(HTML_TAG_TABLE_HEADER, content)
 {
 
 }
 
-QHtmlTableHeader &QHtmlTableHeader::setAbbreviation(const QString &value)
+TableHeader &TableHeader::setAbbreviation(const QString &value)
 {
     addAttribute("abbr", value);
     return *this;
 }
 
-QHtmlTableHeader &QHtmlTableHeader::setColSpan(unsigned int value)
+TableHeader &TableHeader::setColSpan(unsigned int value)
 {
     addAttribute("colspan", value);
     return *this;
 }
 
-QHtmlTableHeader &QHtmlTableHeader::setRowSpan(unsigned int value)
+TableHeader &TableHeader::setRowSpan(unsigned int value)
 {
     addAttribute("rowspan", value);
     return *this;
 }
 
-QHtmlTableHeader &QHtmlTableHeader::setHeaders(const QString &value)
+TableHeader &TableHeader::setHeaders(const QString &value)
 {
     addAttribute("headers", value);
     return *this;
 }
 
-QHtmlTableHeader& QHtmlTableHeader::operator << (QHtmlElement& element)
+TableHeader& TableHeader::operator << (Element& element)
 {
     children_.append(element);
     return *this;
 }
 
-QHtmlTableHeader &QHtmlTableHeader::setScope(Scope value)
+TableHeader &TableHeader::setScope(Scope value)
 {
     addAttribute("scope", ScopeToString(value));
     return *this;
 }
 
-QHtmlTableHead::QHtmlTableHead() : QHtmlElement(HTML_TAG_TABLE_ROW_HEADER, QVariant())
+TableHead::TableHead() : Element(HTML_TAG_TABLE_ROW_HEADER, QVariant())
 {
 
 }
 
-QHtmlTableHead& QHtmlTableHead::operator << (const QHtmlTableRow& row)
-{
-    children_.append(row);
-    return *this;
-}
-
-QHtmlTableFooter::QHtmlTableFooter() : QHtmlElement(HTML_TAG_TABLE_FOOTER, QVariant())
-{
-
-}
-
-QHtmlTableFooter& QHtmlTableFooter::operator << (const QHtmlTableRow &row)
+TableHead& TableHead::operator << (const TableRow& row)
 {
     children_.append(row);
     return *this;
 }
 
-QHtmlTableBody& QHtmlTableBody::operator << (const QHtmlTableRow &row)
+TableFooter::TableFooter() : Element(HTML_TAG_TABLE_FOOTER, QVariant())
+{
+
+}
+
+TableFooter& TableFooter::operator << (const TableRow &row)
 {
     children_.append(row);
     return *this;
 }
 
-QHtmlTableDataCell::QHtmlTableDataCell(const QVariant &content) : QHtmlElement(HTML_TAG_TABLE_DATA_CELL, content)
+TableBody& TableBody::operator << (const TableRow &row)
+{
+    children_.append(row);
+    return *this;
+}
+
+TableDataCell::TableDataCell(const QVariant &content) : Element(HTML_TAG_TABLE_DATA_CELL, content)
 {
 
 }
 
-QHtmlTableDataCell &QHtmlTableDataCell::setColSpan(const unsigned int value)
+TableDataCell &TableDataCell::setColSpan(const unsigned int value)
 {
     addAttribute("colspan", value);
     return *this;
 }
 
-QHtmlTableDataCell &QHtmlTableDataCell::setRowSpan(const unsigned int value)
+TableDataCell &TableDataCell::setRowSpan(const unsigned int value)
 {
     addAttribute("rowspan", value);
     return *this;
 }
 
-QHtmlTableDataCell& QHtmlTableDataCell::setHeaders(const QString &value)
+TableDataCell& TableDataCell::setHeaders(const QString &value)
 {
     addAttribute("headers", value);
     return *this;
 }
 
-QHtmlTableDataCell& QHtmlTableDataCell::operator << (const QHtmlElement &element)
+TableDataCell& TableDataCell::operator << (const Element &element)
 {
     children_.append(element);
     return *this;
 }
 
-QHtmlTableBody::QHtmlTableBody() : QHtmlElement(HTML_TAG_TABLE_BODY, QVariant())
+TableBody::TableBody() : Element(HTML_TAG_TABLE_BODY, QVariant())
 {
 
 }
 
-QHtmlTable::QHtmlTable() : QHtmlElement(HTML_TAG_TABLE, QVariant())
+Table::Table() : Element(HTML_TAG_TABLE, QVariant())
 {
 
 }
 
-QHtmlTable &QHtmlTable::operator << (const QHtmlTableBody &body)
+Table &Table::operator << (const TableBody &body)
 {
     children_.append(body);
     return *this;
 }
 
-QHtmlTable &QHtmlTable::operator << (const QHtmlTableHead &head)
+Table &Table::operator << (const TableHead &head)
 {
     children_.append(head);
     return *this;
 }
 
-QHtmlTable &QHtmlTable::operator << (const QHtmlTableFooter &footer) {
+Table &Table::operator << (const TableFooter &footer) {
     children_.append(footer);
     return *this;
 }
 
 
-QHtmlTable& QHtmlTable::operator << (const QHtmlTableRow& row)
+Table& Table::operator << (const TableRow& row)
 {
     children_.append(row);
     return *this;
 }
 
-QHtmlTable& QHtmlTable::operator << (const QHtmlCaption& caption)
+Table& Table::operator << (const Caption& caption)
 {
     children_.append(caption);
     return *this;

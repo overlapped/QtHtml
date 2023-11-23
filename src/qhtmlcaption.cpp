@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlCaption::QHtmlCaption(const QString &content) : QHtmlElement(HTML_TAG_CAPTION, content)
+Caption::Caption(const QString &content) : Element(HTML_TAG_CAPTION, content)
 {
 
 }

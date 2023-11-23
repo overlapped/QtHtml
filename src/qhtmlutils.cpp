@@ -2,7 +2,7 @@
 
 namespace QtHtml {
 
-QString QHtmlUtils::TargetToString(Target value)
+QString Utils::TargetToString(Target value)
 {
     QString result;
 
@@ -18,7 +18,7 @@ QString QHtmlUtils::TargetToString(Target value)
     return result;
 }
 
-QString QHtmlUtils::FormMethodToString(FormMethod value) {
+QString Utils::FormMethodToString(FormMethod value) {
     QString result;
 
     switch (value) {

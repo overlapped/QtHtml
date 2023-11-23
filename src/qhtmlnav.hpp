@@ -5,11 +5,11 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlNav : public QHtmlElement
+class QTHTML_EXPORT Nav : public Element
 {
 public:
-    QHtmlNav();
-    explicit QHtmlNav(const QString& classStyle);
+    Nav();
+    explicit Nav(const QString& classStyle);
 };
 
 }

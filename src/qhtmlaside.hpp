@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlAside : public QHtmlElement
+class QTHTML_EXPORT Aside : public Element
 {
 public:
-    explicit QHtmlAside(const QString &content);
+    explicit Aside(const QString &content);
 };
 
 }

@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlCaption : public QHtmlElement
+class QTHTML_EXPORT Caption : public Element
 {
 public:
-    explicit QHtmlCaption(const QString &content);
+    explicit Caption(const QString &content);
 };
 
 }

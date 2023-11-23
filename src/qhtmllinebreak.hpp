@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QHtmlLineBreak : public QHtmlElement
+class LineBreak : public Element
 {
 public:
-    QHtmlLineBreak();
+    LineBreak();
 };
 
 }

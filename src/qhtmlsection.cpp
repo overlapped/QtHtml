@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlSection::QHtmlSection() : QHtmlElement(HTML_TAG_SECTION, QVariant())
+Section::Section() : Element(HTML_TAG_SECTION, QVariant())
 {
 
 }

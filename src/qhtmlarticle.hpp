@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlArticle : public QHtmlElement
+class QTHTML_EXPORT Article : public Element
 {
 public:
-    QHtmlArticle();
+    Article();
 };
 
 }

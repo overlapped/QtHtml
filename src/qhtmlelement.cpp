@@ -8,12 +8,12 @@
 
 namespace QtHtml {
 
-QHtmlElement::QHtmlElement(const QString &name, const QVariant &content) : name_(name), content_(content), selfClosed_(false)
+Element::Element(const QString &name, const QVariant &content) : name_(name), content_(content), selfClosed_(false)
 {
 
 }
 
-QHtmlElement& QHtmlElement::addAttribute(const QString &name, const QVariant &content)
+Element& Element::addAttribute(const QString &name, const QVariant &content)
 {
     if (!name.isEmpty()) {
         attributes_[name] = content;
@@ -21,18 +21,18 @@ QHtmlElement& QHtmlElement::addAttribute(const QString &name, const QVariant &co
     return *this;
 }
 
-QVariant QHtmlElement::attribute(const QString &name)
+QVariant Element::attribute(const QString &name)
 {
     return attributes_[name];
 }
 
-QHtmlElement& QHtmlElement::operator <<(const QHtmlElement &child)
+Element& Element::operator <<(const Element &child)
 {
     children_.append(child);
     return *this;
 }
 
-QString QHtmlElement::toString() const
+QString Element::toString() const
 {
     QString str;
     QTextStream os(&str);
@@ -41,7 +41,7 @@ QString QHtmlElement::toString() const
     return str;
 }
 
-QHtmlElement &QHtmlElement::operator <<(const QVariant &content)
+Element &Element::operator <<(const QVariant &content)
 {
     QString result(content_.toString());
     result += content.toString();
@@ -50,54 +50,54 @@ QHtmlElement &QHtmlElement::operator <<(const QVariant &content)
     return *this;
 }
 
-QHtmlElement& QHtmlElement::setAccessKey(const QString &value)
+Element& Element::setAccessKey(const QString &value)
 {
     return addAttribute(HTML_ATTR_ACCESS_KEY, value);
 }
 
-QHtmlElement& QHtmlElement::setAutoCapitalize(AutoCapitalize value)
+Element& Element::setAutoCapitalize(AutoCapitalize value)
 {
     return *this;
 }
 
-QHtmlElement& QHtmlElement::setAutoFocus(bool value)
+Element& Element::setAutoFocus(bool value)
 {
     return addAttribute(HTML_ATTR_AUTO_FOCUS, value);
 }
 
-QHtmlElement& QHtmlElement::setClass(const QString &value)
+Element& Element::setClass(const QString &value)
 {
     return addAttribute(HTML_ATTR_CLASS, value);
 }
 
-QHtmlElement& QHtmlElement::setId(const QString &value)
+Element& Element::setId(const QString &value)
 {
     return addAttribute(HTML_ATTR_ID, value);
 }
 
-QHtmlElement& QHtmlElement::setLang(const QString &value)
+Element& Element::setLang(const QString &value)
 {
     return addAttribute(HTML_ATTR_LANG, value);
 }
 
-QHtmlElement& QHtmlElement::setStyle(const QString &value)
+Element& Element::setStyle(const QString &value)
 {
     return addAttribute(HTML_ATTR_STYLE, value);
 }
 
-QHtmlElement& QHtmlElement::setTitle(const QString &value)
+Element& Element::setTitle(const QString &value)
 {
     return addAttribute(HTML_ATTR_TITLE, value);
 }
 
-QHtmlElement::QHtmlElement() : name_("html")
+Element::Element() : name_("html")
 {
-    children_.append(QHtmlHead());
-    children_.append(QHtmlBody());
+    children_.append(Head());
+    children_.append(Body());
 }
 
 
-QTextStream &QHtmlElement::toString(QTextStream &ostream, const int indent) const
+QTextStream &Element::toString(QTextStream &ostream, const int indent) const
 {
     toStringOpen(ostream, indent);
     toStringContent(ostream, indent);
@@ -106,28 +106,28 @@ QTextStream &QHtmlElement::toString(QTextStream &ostream, const int indent) cons
     return ostream;
 }
 
-QHtmlElement &QHtmlElement::removeAttribute(const QString& name)
+Element &Element::removeAttribute(const QString& name)
 {
     attributes_.remove(name);
     return *this;
 }
 
-const QVariant &QHtmlElement::content() const
+const QVariant &Element::content() const
 {
     return content_;
 }
 
-void QHtmlElement::setContent(const QVariant& content)
+void Element::setContent(const QVariant& content)
 {
     content_ = content;
 }
 
-QString QHtmlElement::name() const
+QString Element::name() const
 {
     return name_;
 }
 
-void QHtmlElement::toStringOpen(QTextStream& ostream, const int indent) const
+void Element::toStringOpen(QTextStream& ostream, const int indent) const
 {
     if (!name_.isEmpty())
     {
@@ -161,7 +161,7 @@ void QHtmlElement::toStringOpen(QTextStream& ostream, const int indent) const
     }
 }
 
-void QHtmlElement::toStringContent(QTextStream &ostream, const int indent) const
+void Element::toStringContent(QTextStream &ostream, const int indent) const
 {
     if (!name_.isEmpty())
     {
@@ -178,7 +178,7 @@ void QHtmlElement::toStringContent(QTextStream &ostream, const int indent) const
     }
 }
 
-void QHtmlElement::toStringClose(QTextStream &ostream, const int indent) const
+void Element::toStringClose(QTextStream &ostream, const int indent) const
 {
     if (!name_.isEmpty())
     {
@@ -189,7 +189,7 @@ void QHtmlElement::toStringClose(QTextStream &ostream, const int indent) const
     }
 }
 
-inline QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlElement &element) {
+inline QTextStream& operator << (QTextStream& ostream, const QtHtml::Element &element) {
     return element.toString(ostream);
 }
 

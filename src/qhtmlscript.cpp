@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlScript::QHtmlScript(const QString &srcFile, const QString &content) : QHtmlElement(HTML_TAG_SCRIPT, content)
+Script::Script(const QString &srcFile, const QString &content) : Element(HTML_TAG_SCRIPT, content)
 {
     if (!srcFile.isEmpty())
     {
@@ -11,7 +11,7 @@ QHtmlScript::QHtmlScript(const QString &srcFile, const QString &content) : QHtml
     }
 }
 
-QHtmlScript &QHtmlScript::setAsync(bool isOn)
+Script &Script::setAsync(bool isOn)
 {
     if (isOn)
     {
@@ -25,7 +25,7 @@ QHtmlScript &QHtmlScript::setAsync(bool isOn)
     return *this;
 }
 
-QHtmlScript &QHtmlScript::setDefer(bool isOn)
+Script &Script::setDefer(bool isOn)
 {
     if (isOn)
     {
@@ -39,17 +39,17 @@ QHtmlScript &QHtmlScript::setDefer(bool isOn)
     return *this;
 }
 
-QHtmlScript &QHtmlScript::setCrossOrigin(const QString &value)
+Script &Script::setCrossOrigin(const QString &value)
 {
     return *this;
 }
 
-QHtmlScript &QHtmlScript::setIntegrity(const QString &value)
+Script &Script::setIntegrity(const QString &value)
 {
     return *this;
 }
 
-QHtmlScript &QHtmlScript::setNoModule(bool isOn)
+Script &Script::setNoModule(bool isOn)
 {
     if (isOn)
     {
@@ -63,7 +63,7 @@ QHtmlScript &QHtmlScript::setNoModule(bool isOn)
     return *this;
 }
 
-QHtmlScript &QHtmlScript::setType(const QString &value)
+Script &Script::setType(const QString &value)
 {
     return *this;
 }

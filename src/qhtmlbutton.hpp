@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlButton : public QHtmlElement
+class QTHTML_EXPORT Button : public Element
 {
 public:
     enum class PopOverTargetAction {
@@ -20,20 +20,20 @@ public:
         Button
     };
 
-    explicit QHtmlButton(const QString &content);
+    explicit Button(const QString &content);
 
-    QHtmlButton& setAutoFocus(bool value);
-    QHtmlButton& setDisabled(bool value);
-    QHtmlButton& setForm(const QString &value);
-    QHtmlButton& setFormAction(const QUrl &value);
-    QHtmlButton& setFormMethod(FormMethod value);
-    QHtmlButton& setFormNoValidate(bool value);
-    QHtmlButton& setFormTarget(Target value);
-    QHtmlButton& setName(const QString &value);
-    QHtmlButton& setPopOverTarget(const QString &value);
-    QHtmlButton& setPopOverTargetAction(PopOverTargetAction value);
-    QHtmlButton& setType(Type value);
-    QHtmlButton& setValue(const QString &value);
+    Button& setAutoFocus(bool value);
+    Button& setDisabled(bool value);
+    Button& setForm(const QString &value);
+    Button& setFormAction(const QUrl &value);
+    Button& setFormMethod(FormMethod value);
+    Button& setFormNoValidate(bool value);
+    Button& setFormTarget(Target value);
+    Button& setName(const QString &value);
+    Button& setPopOverTarget(const QString &value);
+    Button& setPopOverTargetAction(PopOverTargetAction value);
+    Button& setType(Type value);
+    Button& setValue(const QString &value);
 };
 
 }

@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QHtmlBlockquote : public QHtmlElement
+class Blockquote : public Element
 {
 public:
 };

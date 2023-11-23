@@ -3,39 +3,39 @@
 
 namespace QtHtml {
 
-QHtmlList::QHtmlList(bool isOrdered) : QHtmlElement(isOrdered ? HTML_TAG_ORDERED_LIST : HTML_TAG_UNORDERED_LIST, QVariant())
+List::List(bool isOrdered) : Element(isOrdered ? HTML_TAG_ORDERED_LIST : HTML_TAG_UNORDERED_LIST, QVariant())
 {
     
 }
 
-QHtmlList::QHtmlList(bool isOrdered, const QString &classStyle) : QHtmlElement(isOrdered ? HTML_TAG_ORDERED_LIST : HTML_TAG_UNORDERED_LIST, QVariant())
+List::List(bool isOrdered, const QString &classStyle) : Element(isOrdered ? HTML_TAG_ORDERED_LIST : HTML_TAG_UNORDERED_LIST, QVariant())
 {
     setClass(classStyle);
 }
 
-QHtmlList& QHtmlList::operator << (const QHtmlListItem &item)
+List& List::operator << (const ListItem &item)
 {
     children_.append(item);
     return *this;
 }
 
-QHtmlList& QHtmlList::operator << (const QHtmlElement& element)
+List& List::operator << (const Element& element)
 {
     children_.append(element);
     return *this;
 }
 
-QHtmlListItem::QHtmlListItem() : QHtmlElement(HTML_TAG_LIST_ITEM, QVariant())
+ListItem::ListItem() : Element(HTML_TAG_LIST_ITEM, QVariant())
 {
 
 }
 
-QHtmlListItem::QHtmlListItem(const QString &content) : QHtmlElement(HTML_TAG_LIST_ITEM, content)
+ListItem::ListItem(const QString &content) : Element(HTML_TAG_LIST_ITEM, content)
 {
 
 }
 
-QHtmlListItem& QHtmlListItem::operator << (const QHtmlElement& element)
+ListItem& ListItem::operator << (const Element& element)
 {
     children_.append(element);
     return *this;

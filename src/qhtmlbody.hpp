@@ -5,29 +5,29 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlBody : public QHtmlElement
+class QTHTML_EXPORT Body : public Element
 {
 public:
-    QHtmlBody();
+    Body();
 
-    QHtmlBody& setOnAfterPrint(const QString &value);
-    QHtmlBody& setOnBeforePrint(const QString &value);
-    QHtmlBody& setOnBeforeUnload(const QString &value);
-    QHtmlBody& setOnBlur(const QString &value);
-    QHtmlBody& setOnError(const QString &value);
-    QHtmlBody& setOnFocus(const QString &value);
-    QHtmlBody& setOnHashChange(const QString &value);
-    QHtmlBody& setOnLanguageChange(const QString &value);
-    QHtmlBody& setOnLoad(const QString &value);
-    QHtmlBody& setOnMessage(const QString &value);
-    QHtmlBody& setOnOffline(const QString &value);
-    QHtmlBody& setOnOnline(const QString &value);
-    QHtmlBody& setOnPopState(const QString &value);
-    QHtmlBody& setOnRedo(const QString &value);
-    QHtmlBody& setOnResize(const QString &value);
-    QHtmlBody& setOnStorage(const QString &value);
-    QHtmlBody& setOnUndo(const QString &value);
-    QHtmlBody& setOnUnload(const QString &value);
+    Body& setOnAfterPrint(const QString &value);
+    Body& setOnBeforePrint(const QString &value);
+    Body& setOnBeforeUnload(const QString &value);
+    Body& setOnBlur(const QString &value);
+    Body& setOnError(const QString &value);
+    Body& setOnFocus(const QString &value);
+    Body& setOnHashChange(const QString &value);
+    Body& setOnLanguageChange(const QString &value);
+    Body& setOnLoad(const QString &value);
+    Body& setOnMessage(const QString &value);
+    Body& setOnOffline(const QString &value);
+    Body& setOnOnline(const QString &value);
+    Body& setOnPopState(const QString &value);
+    Body& setOnRedo(const QString &value);
+    Body& setOnResize(const QString &value);
+    Body& setOnStorage(const QString &value);
+    Body& setOnUndo(const QString &value);
+    Body& setOnUnload(const QString &value);
 };
 
 }

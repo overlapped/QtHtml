@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlTime::QHtmlTime(const QString &datetime, const QString &content) : QHtmlElement(HTML_TAG_TIME, content)
+Time::Time(const QString &datetime, const QString &content) : Element(HTML_TAG_TIME, content)
 {
     addAttribute("datetime", datetime);
 }

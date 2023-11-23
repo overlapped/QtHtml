@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlSpan::QHtmlSpan(const QString &content) : QHtmlElement(HTML_TAG_SPAN, content)
+Span::Span(const QString &content) : Element(HTML_TAG_SPAN, content)
 {
 
 }

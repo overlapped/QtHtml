@@ -4,13 +4,13 @@
 
 namespace QtHtml {
 
-QString PopOverTargetActionToString(QHtmlButton::PopOverTargetAction value) {
+QString PopOverTargetActionToString(Button::PopOverTargetAction value) {
     QString result;
 
     switch (value) {
-        case QHtmlButton::PopOverTargetAction::Hide: result = "hide"; break;
-        case QHtmlButton::PopOverTargetAction::Show: result = "show"; break;
-        case QHtmlButton::PopOverTargetAction::Toggle: result = "toggle"; break;
+        case Button::PopOverTargetAction::Hide: result = "hide"; break;
+        case Button::PopOverTargetAction::Show: result = "show"; break;
+        case Button::PopOverTargetAction::Toggle: result = "toggle"; break;
         default:
             break;
     }
@@ -18,13 +18,13 @@ QString PopOverTargetActionToString(QHtmlButton::PopOverTargetAction value) {
     return result;
 }
 
-QString TypeToString(QHtmlButton::Type value) {
+QString TypeToString(Button::Type value) {
     QString result;
 
     switch (value) {
-        case QHtmlButton::Type::Submit: result = "submit"; break;
-        case QHtmlButton::Type::Reset:  result = "reset"; break;
-        case QHtmlButton::Type::Button: result = "button"; break;
+        case Button::Type::Submit: result = "submit"; break;
+        case Button::Type::Reset:  result = "reset"; break;
+        case Button::Type::Button: result = "button"; break;
         default:
             break;
     }
@@ -32,78 +32,78 @@ QString TypeToString(QHtmlButton::Type value) {
     return result;
 }
 
-QHtmlButton::QHtmlButton(const QString &content) : QHtmlElement(HTML_TAG_BUTTON, content)
+Button::Button(const QString &content) : Element(HTML_TAG_BUTTON, content)
 {
 
 }
 
-QHtmlButton &QHtmlButton::setAutoFocus(bool value)
+Button &Button::setAutoFocus(bool value)
 {
     addAttribute(HTML_ATTR_BUTTON_AUTOFOCUS, value ? "true" : "false");
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setDisabled(bool value)
+Button &Button::setDisabled(bool value)
 {
     addAttribute(HTML_ATTR_BUTTON_DISABLED, value ? "true" : "false");
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setForm(const QString &value)
+Button &Button::setForm(const QString &value)
 {
     addAttribute(HTML_ATTR_BUTTON_FORM, value);
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setFormAction(const QUrl &value)
+Button &Button::setFormAction(const QUrl &value)
 {
     addAttribute(HTML_ATTR_BUTTON_FORM_ACTION, value);
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setFormMethod(FormMethod value)
+Button &Button::setFormMethod(FormMethod value)
 {
-    addAttribute(HTML_ATTR_BUTTON_FORM_METHOD, QHtmlUtils::FormMethodToString(value));
+    addAttribute(HTML_ATTR_BUTTON_FORM_METHOD, Utils::FormMethodToString(value));
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setFormNoValidate(bool value)
+Button &Button::setFormNoValidate(bool value)
 {
     addAttribute(HTML_ATTR_BUTTON_FORM_NO_VALIDATE, value ? "true" : "false");
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setFormTarget(Target value)
+Button &Button::setFormTarget(Target value)
 {
-    addAttribute(HTML_ATTR_BUTTON_FORM_TARGET, QHtmlUtils::TargetToString(value));
+    addAttribute(HTML_ATTR_BUTTON_FORM_TARGET, Utils::TargetToString(value));
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setName(const QString &value)
+Button &Button::setName(const QString &value)
 {
     addAttribute(HTML_ATTR_BUTTON_NAME, value);
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setPopOverTarget(const QString &value)
+Button &Button::setPopOverTarget(const QString &value)
 {
     addAttribute(HTML_ATTR_BUTTON_FORM_POPOVERTARGET, value);
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setPopOverTargetAction(PopOverTargetAction value)
+Button &Button::setPopOverTargetAction(PopOverTargetAction value)
 {
     addAttribute(HTML_ATTR_BUTTON_FORM_POPOVERTARGHETACTION, PopOverTargetActionToString(value));
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setType(Type value)
+Button &Button::setType(Type value)
 {
     addAttribute(HTML_ATTR_BUTTON_TYPE, TypeToString(value));
     return *this;
 }
 
-QHtmlButton &QHtmlButton::setValue(const QString &value)
+Button &Button::setValue(const QString &value)
 {
     addAttribute(HTML_ATTR_BUTTON_VALUE, value);
     return *this;

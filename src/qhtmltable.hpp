@@ -6,7 +6,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlTableHeader : public QHtmlElement
+class QTHTML_EXPORT TableHeader : public Element
 {
 public:
     enum class Scope {
@@ -16,80 +16,80 @@ public:
         ColGroup
     };
 
-    explicit QHtmlTableHeader(const QString &content = QString());
+    explicit TableHeader(const QString &content = QString());
 
-    QHtmlTableHeader& setAbbreviation(const QString &value);
-    QHtmlTableHeader& setColSpan(unsigned int value);
-    QHtmlTableHeader& setRowSpan(unsigned int value);
-    QHtmlTableHeader& setHeaders(const QString &value);
-    QHtmlTableHeader& setScope(Scope value);
+    TableHeader& setAbbreviation(const QString &value);
+    TableHeader& setColSpan(unsigned int value);
+    TableHeader& setRowSpan(unsigned int value);
+    TableHeader& setHeaders(const QString &value);
+    TableHeader& setScope(Scope value);
 
-    QHtmlTableHeader& operator << (QHtmlElement& element);
+    TableHeader& operator << (Element& element);
 };
 
-class QTHTML_EXPORT QHtmlTableDataCell : public QHtmlElement
+class QTHTML_EXPORT TableDataCell : public Element
 {
 public:
-    explicit QHtmlTableDataCell(const QVariant &content = QString());
+    explicit TableDataCell(const QVariant &content = QString());
 
-    QHtmlTableDataCell& setColSpan(const unsigned int value);
-    QHtmlTableDataCell& setRowSpan(const unsigned int value);
-    QHtmlTableDataCell& setHeaders(const QString &value);
+    TableDataCell& setColSpan(const unsigned int value);
+    TableDataCell& setRowSpan(const unsigned int value);
+    TableDataCell& setHeaders(const QString &value);
 
-    QHtmlTableDataCell& operator << (const QHtmlElement& element);
+    TableDataCell& operator << (const Element& element);
 };
 
-class QTHTML_EXPORT QHtmlTableRow : public QHtmlElement
+class QTHTML_EXPORT TableRow : public Element
 {
 public:
-    QHtmlTableRow();
+    TableRow();
 
-    QHtmlTableRow& operator << (QHtmlElement& element) = delete;
-    QHtmlTableRow& operator << (const QHtmlTableHeader& col);
-    QHtmlTableRow& operator << (const QHtmlTableDataCell& col);
+    TableRow& operator << (Element& element) = delete;
+    TableRow& operator << (const TableHeader& col);
+    TableRow& operator << (const TableDataCell& col);
 
-    QHtmlTableRow& setStyle(const QString& value);
+    TableRow& setStyle(const QString& value);
 };
 
-class QTHTML_EXPORT QHtmlTableHead : public QHtmlElement
+class QTHTML_EXPORT TableHead : public Element
 {
 public:
-    QHtmlTableHead();
+    TableHead();
 
-    QHtmlTableHead& operator << (QHtmlElement& element) = delete;
-    QHtmlTableHead& operator << (const QHtmlTableRow& row);
+    TableHead& operator << (Element& element) = delete;
+    TableHead& operator << (const TableRow& row);
 };
 
-class QTHTML_EXPORT QHtmlTableFooter : public QHtmlElement
+class QTHTML_EXPORT TableFooter : public Element
 {
 public:
-    QHtmlTableFooter();
+    TableFooter();
 
-    QHtmlTableFooter& operator << (QHtmlElement& element) = delete;
-    QHtmlTableFooter& operator << (const QHtmlTableRow& row);
+    TableFooter& operator << (Element& element) = delete;
+    TableFooter& operator << (const TableRow& row);
 };
 
-class QTHTML_EXPORT QHtmlTableBody : public QHtmlElement
+class QTHTML_EXPORT TableBody : public Element
 {
 public:
-    QHtmlTableBody();
+    TableBody();
 
-    QHtmlTableBody& operator << (QHtmlElement& element) = delete;
-    QHtmlTableBody& operator << (const QHtmlTableRow& row);
+    TableBody& operator << (Element& element) = delete;
+    TableBody& operator << (const TableRow& row);
 };
 
-class QTHTML_EXPORT QHtmlTable : public QHtmlElement
+class QTHTML_EXPORT Table : public Element
 {
 public:
-    QHtmlTable();
+    Table();
 
-    QHtmlTable& operator << (QHtmlElement& element) = delete;
+    Table& operator << (Element& element) = delete;
 
-    QHtmlTable &operator << (const QHtmlTableBody &body);
-    QHtmlTable &operator << (const QHtmlTableHead &head);
-    QHtmlTable &operator << (const QHtmlTableFooter &footer);
-    QHtmlTable& operator << (const QHtmlTableRow& row);
-    QHtmlTable& operator << (const QHtmlCaption& caption);
+    Table &operator << (const TableBody &body);
+    Table &operator << (const TableHead &head);
+    Table &operator << (const TableFooter &footer);
+    Table& operator << (const TableRow& row);
+    Table& operator << (const Caption& caption);
 };
 
 }

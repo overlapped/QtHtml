@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlMark : public QHtmlElement
+class QTHTML_EXPORT Mark : public Element
 {
 public:
-    explicit QHtmlMark(const QString &content);
+    explicit Mark(const QString &content);
 };
 
 }

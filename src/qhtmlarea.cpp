@@ -3,15 +3,15 @@
 
 namespace QtHtml {
 
-QString ShapeToString(QHtmlArea::Shape value)
+QString ShapeToString(Area::Shape value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlArea::Shape::Circle: result = "circle"; break;
-        case QHtmlArea::Shape::Poly: result = "poly"; break;
-        case QHtmlArea::Shape::Rect: result = "rect"; break;
-        case QHtmlArea::Shape::Default: result = "default"; break;
+        case Area::Shape::Circle: result = "circle"; break;
+        case Area::Shape::Poly: result = "poly"; break;
+        case Area::Shape::Rect: result = "rect"; break;
+        case Area::Shape::Default: result = "default"; break;
         default:
             break;
     }
@@ -19,24 +19,24 @@ QString ShapeToString(QHtmlArea::Shape value)
     return result;
 }
 
-QHtmlArea::QHtmlArea() : QHtmlElement(HTML_TAG_AREA, QVariant())
+Area::Area() : Element(HTML_TAG_AREA, QVariant())
 {
 
 }
 
-QHtmlArea &QHtmlArea::setAlt(const QString &value)
+Area &Area::setAlt(const QString &value)
 {
     addAttribute(HTML_ATTR_AREA_ALT, value);
     return *this;
 }
 
-QHtmlArea &QHtmlArea::setCoords(const QString &value)
+Area &Area::setCoords(const QString &value)
 {
     addAttribute(HTML_ATTR_AREA_COORDS, value);
     return *this;
 }
 
-QHtmlArea &QHtmlArea::setShape(Shape value)
+Area &Area::setShape(Shape value)
 {
     addAttribute("alt", ShapeToString(value));
     return *this;

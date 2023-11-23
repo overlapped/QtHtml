@@ -3,30 +3,30 @@
 
 namespace QtHtml {
 
-QHtmlHead::QHtmlHead() : QHtmlElement(HTML_TAG_HEAD, QVariant())
+Head::Head() : Element(HTML_TAG_HEAD, QVariant())
 {
 
 }
 
-QHtmlHead& QHtmlHead::operator << (const QHtmlTitle &title)
+Head& Head::operator << (const Title &title)
 {
     children_.append(title);
     return *this;
 }
 
-QHtmlHead& QHtmlHead::operator << (const QHtmlStyle& style)
+Head& Head::operator << (const Style& style)
 {
     children_.append(style);
     return *this;
 }
 
-QHtmlHead& QHtmlHead::operator << (const QHtmlMeta& meta)
+Head& Head::operator << (const Meta& meta)
 {
     children_.append(meta);
     return *this;
 }
 
-QHtmlHead& QHtmlHead::operator << (const QHtmlLink& link)
+Head& Head::operator << (const Link& link)
 {
     children_.append(link);
     return *this;

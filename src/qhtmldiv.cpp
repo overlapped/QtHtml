@@ -3,12 +3,12 @@
 
 namespace QtHtml {
 
-QHtmlDiv::QHtmlDiv() : QHtmlElement(HTML_TAG_DIVISION, QVariant())
+Div::Div() : Element(HTML_TAG_DIVISION, QVariant())
 {
 
 }
 
-QHtmlDiv::QHtmlDiv(const QString &content) : QHtmlElement(HTML_TAG_DIVISION, QVariant())
+Div::Div(const QString &content) : Element(HTML_TAG_DIVISION, QVariant())
 {
     setClass(content);
 }

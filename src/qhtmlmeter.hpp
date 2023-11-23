@@ -5,15 +5,15 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlMeter : public QHtmlElement
+class QTHTML_EXPORT Meter : public Element
 {
 public:
-    QHtmlMeter(unsigned int value, unsigned int min = 0, unsigned int max = 1, const QString &content = QString());
+    Meter(unsigned int value, unsigned int min = 0, unsigned int max = 1, const QString &content = QString());
 
-    QHtmlMeter& setLow(unsigned int value);
-    QHtmlMeter& setHigh(unsigned int value);
-    QHtmlMeter& setOptimum(unsigned int value);
-    QHtmlMeter& setForm(const QString& formId);
+    Meter& setLow(unsigned int value);
+    Meter& setHigh(unsigned int value);
+    Meter& setOptimum(unsigned int value);
+    Meter& setForm(const QString& formId);
 };
 
 }

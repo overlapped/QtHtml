@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlTime : public QHtmlElement
+class QTHTML_EXPORT Time : public Element
 {
 public:
-    explicit QHtmlTime(const QString& datetime, const QString &content);
+    explicit Time(const QString& datetime, const QString &content);
 };
 
 }

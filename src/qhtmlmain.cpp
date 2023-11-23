@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlMain::QHtmlMain() : QHtmlElement(HTML_TAG_MAIN, QVariant())
+Main::Main() : Element(HTML_TAG_MAIN, QVariant())
 {
 
 }

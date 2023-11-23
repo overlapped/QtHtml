@@ -3,12 +3,12 @@
 
 namespace QtHtml {
 
-QHtmlNav::QHtmlNav() : QHtmlElement(HTML_TAG_NAVIGATION, QVariant())
+Nav::Nav() : Element(HTML_TAG_NAVIGATION, QVariant())
 {
 
 }
 
-QHtmlNav::QHtmlNav(const QString& content) : QHtmlElement(HTML_TAG_NAVIGATION, QVariant())
+Nav::Nav(const QString& content) : Element(HTML_TAG_NAVIGATION, QVariant())
 {
     setClass(content);
 }

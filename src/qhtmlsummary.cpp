@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlDetails::QHtmlDetails(const QString &content) : QHtmlElement(HTML_TAG_DETAILS, content)
+Details::Details(const QString &content) : Element(HTML_TAG_DETAILS, content)
 {
     if (!content.isEmpty())
     {
@@ -11,7 +11,7 @@ QHtmlDetails::QHtmlDetails(const QString &content) : QHtmlElement(HTML_TAG_DETAI
     }
 }
 
-QHtmlDetails &QHtmlDetails::setOpen(const QString &content)
+Details &Details::setOpen(const QString &content)
 {
     if (!content.isEmpty())
     {
@@ -21,7 +21,7 @@ QHtmlDetails &QHtmlDetails::setOpen(const QString &content)
     return *this;
 }
 
-QHtmlSummary::QHtmlSummary(const QString &content) : QHtmlElement(HTML_TAG_SUMMARY, content)
+Summary::Summary(const QString &content) : Element(HTML_TAG_SUMMARY, content)
 {
 
 }

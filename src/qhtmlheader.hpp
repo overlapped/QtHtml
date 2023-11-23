@@ -5,46 +5,46 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlHeader : public QHtmlElement
+class QTHTML_EXPORT Header : public Element
 {
 public:
-    explicit QHtmlHeader();
+    explicit Header();
 };
 
-class QTHTML_EXPORT QHtmlHeader1 : public QHtmlElement
+class QTHTML_EXPORT Header1 : public Element
 {
 public:
-    explicit QHtmlHeader1(const QString &content);
+    explicit Header1(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlHeader2 : public QHtmlElement
+class QTHTML_EXPORT Header2 : public Element
 {
 public:
-    explicit QHtmlHeader2(const QString &content);
+    explicit Header2(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlHeader3 : public QHtmlElement
+class QTHTML_EXPORT Header3 : public Element
 {
 public:
-    explicit QHtmlHeader3(const QString &content);
+    explicit Header3(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlHeader4 : public QHtmlElement
+class QTHTML_EXPORT Header4 : public Element
 {
 public:
-    explicit QHtmlHeader4(const QString &content);
+    explicit Header4(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlHeader5 : public QHtmlElement
+class QTHTML_EXPORT Header5 : public Element
 {
 public:
-    explicit QHtmlHeader5(const QString &content);
+    explicit Header5(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlHeader6 : public QHtmlElement
+class QTHTML_EXPORT Header6 : public Element
 {
 public:
-    explicit QHtmlHeader6(const QString &content);
+    explicit Header6(const QString &content);
 };
 
 }

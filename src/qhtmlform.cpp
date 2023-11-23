@@ -4,43 +4,43 @@
 
 namespace QtHtml {
 
-QHtmlForm::QHtmlForm(const QString &action, FormMethod method) : QHtmlElement(HTML_TAG_FORM, QVariant())
+Form::Form(const QString &action, FormMethod method) : Element(HTML_TAG_FORM, QVariant())
 {
     if (!action.isEmpty())
     {
         addAttribute("action", action);
     }
 
-    addAttribute("method", QHtmlUtils::FormMethodToString(method));
+    addAttribute("method", Utils::FormMethodToString(method));
 }
 
-QString InputTypeToString(QHtmlInput::InputType value)
+QString InputTypeToString(Input::InputType value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlInput::InputType::Button:        result = "button"; break;
-        case QHtmlInput::InputType::CheckBox:      result = "checkbox"; break;
-        case QHtmlInput::InputType::Color :        result = "color"; break;
-        case QHtmlInput::InputType::Date:          result = "date"; break;
-        case QHtmlInput::InputType::DateTimeLocal: result = "datetime-local"; break;
-        case QHtmlInput::InputType::Email:         result = "email"; break;
-        case QHtmlInput::InputType::File:          result = "file"; break;
-        case QHtmlInput::InputType::Hidden:        result = "hidden"; break;
-        case QHtmlInput::InputType::Image:         result = "image"; break;
-        case QHtmlInput::InputType::Month:         result = "month"; break;
-        case QHtmlInput::InputType::Number:        result = "number"; break;
-        case QHtmlInput::InputType::Password:      result = "password"; break;
-        case QHtmlInput::InputType::Radio:         result = "radio"; break;
-        case QHtmlInput::InputType::Range:         result = "range"; break;
-        case QHtmlInput::InputType::Reset:         result = "reset"; break;
-        case QHtmlInput::InputType::Search:        result = "search"; break;
-        case QHtmlInput::InputType::Submit:        result = "submit"; break;
-        case QHtmlInput::InputType::Telephone:     result = "tel"; break;
-        case QHtmlInput::InputType::Text:          result = "text"; break;
-        case QHtmlInput::InputType::Time:          result = "time"; break;
-        case QHtmlInput::InputType::Url:           result = "url"; break;
-        case QHtmlInput::InputType::Week:          result = "week"; break;
+        case Input::InputType::Button:        result = "button"; break;
+        case Input::InputType::CheckBox:      result = "checkbox"; break;
+        case Input::InputType::Color :        result = "color"; break;
+        case Input::InputType::Date:          result = "date"; break;
+        case Input::InputType::DateTimeLocal: result = "datetime-local"; break;
+        case Input::InputType::Email:         result = "email"; break;
+        case Input::InputType::File:          result = "file"; break;
+        case Input::InputType::Hidden:        result = "hidden"; break;
+        case Input::InputType::Image:         result = "image"; break;
+        case Input::InputType::Month:         result = "month"; break;
+        case Input::InputType::Number:        result = "number"; break;
+        case Input::InputType::Password:      result = "password"; break;
+        case Input::InputType::Radio:         result = "radio"; break;
+        case Input::InputType::Range:         result = "range"; break;
+        case Input::InputType::Reset:         result = "reset"; break;
+        case Input::InputType::Search:        result = "search"; break;
+        case Input::InputType::Submit:        result = "submit"; break;
+        case Input::InputType::Telephone:     result = "tel"; break;
+        case Input::InputType::Text:          result = "text"; break;
+        case Input::InputType::Time:          result = "time"; break;
+        case Input::InputType::Url:           result = "url"; break;
+        case Input::InputType::Week:          result = "week"; break;
         default:
             break;
     }
@@ -48,50 +48,52 @@ QString InputTypeToString(QHtmlInput::InputType value)
     return result;
 }
 
-QHtmlInput::QHtmlInput(InputType type, const QString &name, const QVariant &value, const QString &content) : QHtmlElement(HTML_TAG_INPUT, content)
+Input::Input(InputType type, const QString &name, const QVariant &value, const QString &content) : Element(HTML_TAG_INPUT, content)
 {
     addAttribute("type", InputTypeToString(type));
     if (!name.isEmpty())
     {
         addAttribute("name", name);
     }
-    if (!value.isNull() && !value.toString().isEmpty())
+    if (type != InputType::Image && !value.isNull() && !value.toString().isEmpty())
     {
         addAttribute("value", value);
     }
     selfClosed_ = true;
 }
 
-QHtmlInput &QHtmlInput::setName(const QString &name)
+Input &Input::setName(const QString &name)
 {
     addAttribute("name", name);
     return *this;
 }
 
-QHtmlInput &QHtmlInput::setValue(const QVariant &value)
+Input &Input::setValue(const QVariant &value)
 {
-    addAttribute("value", value);
+    if (attribute("type").toString() != "type") {
+        addAttribute("value", value);
+    }
     return *this;
 }
 
-QHtmlInput &QHtmlInput::setDisabled(bool value)
+Input &Input::setDisabled(bool value)
 {
     addAttribute("disabled", value);
     return *this;
 }
 
-QHtmlInput &QHtmlInput::setForm(const QString &name)
+Input &Input::setForm(const QString &name)
 {
     addAttribute("form", name);
     return *this;
 }
 
-QHtmlInputButton::QHtmlInputButton(const QString &value) : QHtmlInput(QHtmlInput::InputType::Button, QString(), value, QString())
+InputButton::InputButton(const QString &value) : Input(Input::InputType::Button, QString(), value, QString())
 {
 
 }
 
-QHtmlInputCheckBox::QHtmlInputCheckBox(const QString &value, bool isChecked) : QHtmlInput(QHtmlInput::InputType::CheckBox, QString(), value, QString())
+InputCheckBox::InputCheckBox(const QString &value, bool isChecked) : Input(Input::InputType::CheckBox, QString(), value, QString())
 {
     if (isChecked)
     {
@@ -99,7 +101,7 @@ QHtmlInputCheckBox::QHtmlInputCheckBox(const QString &value, bool isChecked) : Q
     }
 }
 
-QHtmlInputCheckBox& QHtmlInputCheckBox::setChecked(bool value)
+InputCheckBox& InputCheckBox::setChecked(bool value)
 {
     if (value)
     {
@@ -112,7 +114,7 @@ QHtmlInputCheckBox& QHtmlInputCheckBox::setChecked(bool value)
     return *this;
 }
 
-QHtmlInputColor::QHtmlInputColor(const QString &value) : QHtmlInput(QHtmlInput::InputType::Color, QString(), value, QString())
+InputColor::InputColor(const QString &value) : Input(Input::InputType::Color, QString(), value, QString())
 {
     if (value.length() > 7 || !value.startsWith('#'))
     {
@@ -120,8 +122,8 @@ QHtmlInputColor::QHtmlInputColor(const QString &value) : QHtmlInput(QHtmlInput::
     }
 }
 
-QHtmlInputDate::QHtmlInputDate(const QDate &date, const QDate &min, const QDate &max, unsigned int step)
-    : QHtmlInput(QHtmlInput::InputType::Date, QString(), date, QString())
+InputDate::InputDate(const QDate &date, const QDate &min, const QDate &max, unsigned int step)
+    : Input(Input::InputType::Date, QString(), date, QString())
 {
     if (!date.isNull() && date.isValid())
     {
@@ -141,7 +143,7 @@ QHtmlInputDate::QHtmlInputDate(const QDate &date, const QDate &min, const QDate 
     }
 }
 
-QHtmlInputDate &QHtmlInputDate::setMin(const QDate &date)
+InputDate &InputDate::setMin(const QDate &date)
 {
     if (!date.isNull() && date.isValid())
     {
@@ -150,7 +152,7 @@ QHtmlInputDate &QHtmlInputDate::setMin(const QDate &date)
     return *this;
 }
 
-QHtmlInputDate &QHtmlInputDate::setMax(const QDate &date)
+InputDate &InputDate::setMax(const QDate &date)
 {
     if (!date.isNull() && date.isValid())
     {
@@ -159,7 +161,7 @@ QHtmlInputDate &QHtmlInputDate::setMax(const QDate &date)
     return *this;
 }
 
-QHtmlInputDate &QHtmlInputDate::setStep(unsigned int step)
+InputDate &InputDate::setStep(unsigned int step)
 {
     if (step > 1)
     {
@@ -168,8 +170,8 @@ QHtmlInputDate &QHtmlInputDate::setStep(unsigned int step)
     return *this;
 }
 
-QHtmlInputDateTimeLocal::QHtmlInputDateTimeLocal(const QDateTime &dateTime, const QDateTime &min, const QDateTime &max, unsigned int step)
-    : QHtmlInput(QHtmlInput::InputType::DateTimeLocal, QString(), dateTime, QString())
+InputDateTimeLocal::InputDateTimeLocal(const QDateTime &dateTime, const QDateTime &min, const QDateTime &max, unsigned int step)
+    : Input(Input::InputType::DateTimeLocal, QString(), dateTime, QString())
 {
     if (!dateTime.isNull() && dateTime.isValid())
     {
@@ -189,7 +191,7 @@ QHtmlInputDateTimeLocal::QHtmlInputDateTimeLocal(const QDateTime &dateTime, cons
     }
 }
 
-QHtmlInputDateTimeLocal &QHtmlInputDateTimeLocal::setMin(const QDateTime &dateTime)
+InputDateTimeLocal &InputDateTimeLocal::setMin(const QDateTime &dateTime)
 {
     if (!dateTime.isNull() && dateTime.isValid())
     {
@@ -198,7 +200,7 @@ QHtmlInputDateTimeLocal &QHtmlInputDateTimeLocal::setMin(const QDateTime &dateTi
     return *this;
 }
 
-QHtmlInputDateTimeLocal &QHtmlInputDateTimeLocal::setMax(const QDateTime &dateTime)
+InputDateTimeLocal &InputDateTimeLocal::setMax(const QDateTime &dateTime)
 {
     if (!dateTime.isNull() && dateTime.isValid())
     {
@@ -207,12 +209,62 @@ QHtmlInputDateTimeLocal &QHtmlInputDateTimeLocal::setMax(const QDateTime &dateTi
     return *this;
 }
 
-QHtmlInputDateTimeLocal &QHtmlInputDateTimeLocal::setStep(unsigned int step)
+InputDateTimeLocal &InputDateTimeLocal::setStep(unsigned int step)
 {
     if (step > 1)
     {
         addAttribute("step", step);
     }
+    return *this;
+}
+
+InputEmail::InputEmail() : Input(Input::InputType::Email, QString(), QVariant(), QString())
+{
+
+}
+
+InputEmail &InputEmail::setList(const QString &values)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setMaxLength(unsigned int value)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setMinLength(unsigned int value)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setMultiple(bool value)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setPattern(const QString &pattern)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setPlaceholder(const QString &text)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setReadOnly(bool value)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setRequired(bool value)
+{
+    return *this;
+}
+
+InputEmail &InputEmail::setSize(unsigned int size)
+{
     return *this;
 }
 

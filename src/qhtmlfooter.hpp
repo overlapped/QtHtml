@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlFooter : public QHtmlElement
+class QTHTML_EXPORT Footer : public Element
 {
 public:
-    QHtmlFooter();
+    Footer();
 };
 
 }

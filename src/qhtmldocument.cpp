@@ -4,38 +4,38 @@
 
 namespace QtHtml {
 
-QTextStream& operator<< (QTextStream& ostream, const QHtmlDocument& element)
+QTextStream& operator<< (QTextStream& ostream, const Document& element)
 {
     return element.toString(ostream);
 }
 
-QHtmlDocument::QHtmlDocument() : QHtmlElement(), head_(*static_cast<QHtmlHead*>(&children_[0])), body_(*static_cast<QHtmlBody*>(&children_[1]))
+Document::Document() : Element(), head_(*static_cast<Head*>(&children_[0])), body_(*static_cast<Body*>(&children_[1]))
 {
 
 }
 
-QHtmlDocument::QHtmlDocument(const QString &title) : QHtmlElement(), head_(*static_cast<QHtmlHead*>(&children_[0])), body_(*static_cast<QHtmlBody*>(&children_[1]))
+Document::Document(const QString &title) : Element(), head_(*static_cast<Head*>(&children_[0])), body_(*static_cast<Body*>(&children_[1]))
 {
-    head_ << QHtmlTitle(title);
+    head_ << Title(title);
 }
 
-QHtmlDocument::QHtmlDocument(const QString &title, const QHtmlStyle &style) : QHtmlElement(), head_(*static_cast<QHtmlHead*>(&children_[0])), body_(*static_cast<QHtmlBody*>(&children_[1]))
+Document::Document(const QString &title, const Style &style) : Element(), head_(*static_cast<Head*>(&children_[0])), body_(*static_cast<Body*>(&children_[1]))
 {
-    head_ << QHtmlTitle(title);
+    head_ << Title(title);
     head_ << style;
 }
 
-QHtmlHead& QHtmlDocument::head()
+Head& Document::head()
 {
     return head_;
 }
 
-QHtmlBody& QHtmlDocument::body()
+Body& Document::body()
 {
     return body_;
 }
 
-QString QHtmlDocument::toString() const
+QString Document::toString() const
 {
     QString str;
     QTextStream ostream(&str);
@@ -44,20 +44,20 @@ QString QHtmlDocument::toString() const
     return str;
 }
 
-void QHtmlDocument::setLang(const QString &value)
+void Document::setLang(const QString &value)
 {
     head_.addAttribute("lang", value);
 }
 
-QTextStream& QHtmlDocument::toString(QTextStream &ostream) const
+QTextStream& Document::toString(QTextStream &ostream) const
 {
     ostream << "<!DOCTYPE html>\n";
-    QHtmlElement::toString(ostream);
+    Element::toString(ostream);
 
     return ostream;
 }
 
-QHtmlDocument& QHtmlDocument::operator << (const QHtmlElement &element)
+Document& Document::operator << (const Element &element)
 {
     body_ << element;
     return *this;

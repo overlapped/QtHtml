@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlLink : public QHtmlElement
+class QTHTML_EXPORT Link : public Element
 {
 public:
     enum class CrossOrigin {
@@ -13,10 +13,10 @@ public:
         UseCredentials
     };
 
-    explicit QHtmlLink(const QString &rel, const QString& url);
-    QHtmlLink& setCrossOrigin(CrossOrigin value, const QString& content);
-    QHtmlLink& setIntegrity(const QString& content);
-    QHtmlLink& setType(const QString& value);
+    explicit Link(const QString &rel, const QString& url);
+    Link& setCrossOrigin(CrossOrigin value, const QString& content);
+    Link& setIntegrity(const QString& content);
+    Link& setType(const QString& value);
 };
 
 }

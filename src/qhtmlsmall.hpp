@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlSmall : public QHtmlElement
+class QTHTML_EXPORT Small : public Element
 {
 public:
-    explicit QHtmlSmall(const QString &content);
+    explicit Small(const QString &content);
 };
 
 }

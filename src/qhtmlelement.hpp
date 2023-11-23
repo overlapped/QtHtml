@@ -23,7 +23,7 @@ enum class FormMethod {
     Dialog
 };
 
-class QTHTML_EXPORT QHtmlElement
+class QTHTML_EXPORT Element
 {
 public:
     enum class AutoCapitalize
@@ -43,25 +43,25 @@ public:
         Auto
     };
 
-    explicit QHtmlElement(const QString &name, const QVariant &content);
-    ~QHtmlElement() = default;
+    explicit Element(const QString &name, const QVariant &content);
+    ~Element() = default;
 
-    QHtmlElement& addAttribute(const QString &name, const QVariant &content = QVariant());
+    Element& addAttribute(const QString &name, const QVariant &content = QVariant());
     QVariant attribute(const QString &name);
-    QHtmlElement& operator << (const QVariant &content);
+    Element& operator << (const QVariant &content);
 
-    QHtmlElement& operator << (const QHtmlElement &child);
+    Element& operator << (const Element &child);
 
-    QHtmlElement& setAccessKey(const QString &value);
-    QHtmlElement& setAutoCapitalize(AutoCapitalize value);
-    QHtmlElement& setAutoFocus(bool value);
-    QHtmlElement& setClass(const QString &value);
-    QHtmlElement& setId(const QString &value);
-    QHtmlElement& setLang(const QString &value);
-    QHtmlElement& setStyle(const QString &value);
-    QHtmlElement& setTitle(const QString &value);
+    Element& setAccessKey(const QString &value);
+    Element& setAutoCapitalize(AutoCapitalize value);
+    Element& setAutoFocus(bool value);
+    Element& setClass(const QString &value);
+    Element& setId(const QString &value);
+    Element& setLang(const QString &value);
+    Element& setStyle(const QString &value);
+    Element& setTitle(const QString &value);
 
-    friend QTextStream& operator<<(QTextStream& ostream, const QHtmlElement& element);
+    friend QTextStream& operator<<(QTextStream& ostream, const Element& element);
 
     QString toString() const;
 
@@ -71,15 +71,15 @@ public:
     void setContent(const QVariant &content);
 
 protected:
-    QHtmlElement();
+    Element();
     QTextStream& toString(QTextStream& ostream, const int indent = 0) const;
-    QHtmlElement& removeAttribute(const QString &name);
+    Element& removeAttribute(const QString &name);
     bool selfClosed_;
 
     QString name_;
     QVariant content_;
     QVariantMap attributes_;
-    QList<QHtmlElement> children_;
+    QList<Element> children_;
 
 private:
     void toStringOpen(QTextStream& ostream, const int indent = 2) const;
@@ -87,7 +87,7 @@ private:
     void toStringClose(QTextStream& ostream, const int indent = 2) const;
 };
 
-inline QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlElement& element);
+inline QTextStream& operator << (QTextStream& ostream, const QtHtml::Element& element);
 
 }
 

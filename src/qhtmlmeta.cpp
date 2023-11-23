@@ -3,16 +3,16 @@
 
 namespace QtHtml {
 
-QString HttpEquivToString(QHtmlMeta::HttpEquiv value)
+QString HttpEquivToString(Meta::HttpEquiv value)
 {
     QString result;
 
     switch (value) {
-        case QHtmlMeta::HttpEquiv::ContentSecurityPolicy: result = "content-security-policy"; break;
-        case QHtmlMeta::HttpEquiv::ContentType: result = "content-type"; break;
-        case QHtmlMeta::HttpEquiv::DefaultStyle: result = "default-style"; break;
-        case QHtmlMeta::HttpEquiv::Refresh: result = "refresh"; break;
-        case QHtmlMeta::HttpEquiv::XUACompatibility: result = "x-ua-compatibility"; break;
+        case Meta::HttpEquiv::ContentSecurityPolicy: result = "content-security-policy"; break;
+        case Meta::HttpEquiv::ContentType: result = "content-type"; break;
+        case Meta::HttpEquiv::DefaultStyle: result = "default-style"; break;
+        case Meta::HttpEquiv::Refresh: result = "refresh"; break;
+        case Meta::HttpEquiv::XUACompatibility: result = "x-ua-compatibility"; break;
         default:
             break;
     }
@@ -20,25 +20,25 @@ QString HttpEquivToString(QHtmlMeta::HttpEquiv value)
     return result;
 }
 
-QHtmlMeta::QHtmlMeta() : QHtmlElement(HTML_TAG_META, QVariant())
+Meta::Meta() : Element(HTML_TAG_META, QVariant())
 {
 
 }
 
-QHtmlMeta::QHtmlMeta(const QString &charset) : QHtmlElement(HTML_TAG_META, QVariant())
+Meta::Meta(const QString &charset) : Element(HTML_TAG_META, QVariant())
 {
     selfClosed_ = true;
     addAttribute("charset", charset);
 }
 
-QHtmlMeta::QHtmlMeta(const QString &name, const QString &content) : QHtmlElement(HTML_TAG_META, QVariant())
+Meta::Meta(const QString &name, const QString &content) : Element(HTML_TAG_META, QVariant())
 {
     selfClosed_ = true;
     addAttribute("name", name);
     addAttribute("content", content);
 }
 
-QHtmlMeta &QHtmlMeta::setHttpEquiv(HttpEquiv value, const QString& content)
+Meta &Meta::setHttpEquiv(HttpEquiv value, const QString& content)
 {
     addAttribute("http-equiv", HttpEquivToString(value));
     addAttribute("content", content);

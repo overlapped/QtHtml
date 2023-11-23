@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlArticle::QHtmlArticle() : QHtmlElement(HTML_TAG_ARTICLE, QVariant())
+Article::Article() : Element(HTML_TAG_ARTICLE, QVariant())
 {
 
 }

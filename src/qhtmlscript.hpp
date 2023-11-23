@@ -5,17 +5,17 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlScript : public QHtmlElement
+class QTHTML_EXPORT Script : public Element
 {
 public:
-    explicit QHtmlScript(const QString & srcFile = QString(), const QString &content = QString());
+    explicit Script(const QString & srcFile = QString(), const QString &content = QString());
 
-    QHtmlScript& setAsync(bool isOn = true);
-    QHtmlScript& setDefer(bool isOn = true);
-    QHtmlScript& setCrossOrigin(const QString& value);
-    QHtmlScript& setIntegrity(const QString& value);
-    QHtmlScript& setNoModule(bool isOn = true);
-    QHtmlScript& setType(const QString& value);
+    Script& setAsync(bool isOn = true);
+    Script& setDefer(bool isOn = true);
+    Script& setCrossOrigin(const QString& value);
+    Script& setIntegrity(const QString& value);
+    Script& setNoModule(bool isOn = true);
+    Script& setType(const QString& value);
 };
 
 }

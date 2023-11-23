@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QHtmlCanvas : public QHtmlElement
+class Canvas : public Element
 {
 public:
 };

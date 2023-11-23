@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlParagraph::QHtmlParagraph(const QString &content) : QHtmlElement(HTML_TAG_PARAGRAPH, content)
+Paragraph::Paragraph(const QString &content) : Element(HTML_TAG_PARAGRAPH, content)
 {
 
 }

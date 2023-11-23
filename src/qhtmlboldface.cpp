@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlBoldface::QHtmlBoldface(const QString &content) : QHtmlElement(HTML_TAG_BOLD, content)
+Bold::Bold(const QString &content) : Element(HTML_TAG_BOLD, content)
 {
 
 }

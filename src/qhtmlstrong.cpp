@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlStrong::QHtmlStrong(const QString &content) : QHtmlElement(HTML_TAG_STRONG_TEXT, content)
+Strong::Strong(const QString &content) : Element(HTML_TAG_STRONG_TEXT, content)
 {
 
 }

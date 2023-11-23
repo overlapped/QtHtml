@@ -5,12 +5,12 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlProgress : public QHtmlElement
+class QTHTML_EXPORT Progress : public Element
 {
 public:
-    QHtmlProgress(unsigned int value, unsigned int max = 1, const QString &content = QString());
+    Progress(unsigned int value, unsigned int max = 1, const QString &content = QString());
 
-    QHtmlProgress& setMax(unsigned int value);
+    Progress& setMax(unsigned int value);
 };
 
 }

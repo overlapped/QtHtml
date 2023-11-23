@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlLabel::QHtmlLabel(const QString& control, const QString &content) : QHtmlElement(HTML_TAG_LABEL, content)
+Label::Label(const QString& control, const QString &content) : Element(HTML_TAG_LABEL, content)
 {
     addAttribute("for", control);
 }

@@ -5,17 +5,17 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlDetails : public QHtmlElement
+class QTHTML_EXPORT Details : public Element
 {
 public:
-    explicit QHtmlDetails(const QString &content = QString());
-    QHtmlDetails& setOpen(const QString &content);
+    explicit Details(const QString &content = QString());
+    Details& setOpen(const QString &content);
 };
 
-class QTHTML_EXPORT QHtmlSummary : public QHtmlElement
+class QTHTML_EXPORT Summary : public Element
 {
 public:
-    explicit QHtmlSummary(const QString &content);
+    explicit Summary(const QString &content);
 };
 
 }

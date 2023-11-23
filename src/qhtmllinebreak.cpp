@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlLineBreak::QHtmlLineBreak() : QHtmlElement(HTML_TAG_LINEBREAK, QVariant())
+LineBreak::LineBreak() : Element(HTML_TAG_LINEBREAK, QVariant())
 {
     selfClosed_ = true;
 }

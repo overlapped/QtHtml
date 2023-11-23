@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlSmall::QHtmlSmall(const QString &content) : QHtmlElement(HTML_TAG_SMALL_TEXT, content)
+Small::Small(const QString &content) : Element(HTML_TAG_SMALL_TEXT, content)
 {
 
 }

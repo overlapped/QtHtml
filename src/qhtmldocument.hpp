@@ -7,31 +7,31 @@
 
 namespace QtHtml {
 
-class QHtmlDocument : public QHtmlElement
+class Document : public Element
 {
 public:
-    QHtmlDocument();
-    explicit QHtmlDocument(const QString& title);
-    explicit QHtmlDocument(const QString& title, const QHtmlStyle& style);
+    Document();
+    explicit Document(const QString& title);
+    explicit Document(const QString& title, const Style& style);
 
-    QHtmlHead& head();
-    QHtmlBody& body();
+    Head& head();
+    Body& body();
 
     QString toString() const;
 
-    QHtmlDocument& operator << (const QHtmlElement& element);
+    Document& operator << (const Element& element);
 
     void setLang(const QString& value);
 
-    friend QTextStream& operator << (QTextStream& ostream, const QHtmlDocument& element);
+    friend QTextStream& operator << (QTextStream& ostream, const Document& element);
 
 private:
     QTextStream& toString(QTextStream& ostream) const;
-    QHtmlHead& head_;
-    QHtmlBody& body_;
+    Head& head_;
+    Body& body_;
 };
 
-QTextStream& operator << (QTextStream& ostream, const QtHtml::QHtmlDocument& element);
+QTextStream& operator << (QTextStream& ostream, const QtHtml::Document& element);
 
 }
 

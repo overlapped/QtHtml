@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlBoldface : public QHtmlElement
+class QTHTML_EXPORT Bold : public Element
 {
 public:
-    explicit QHtmlBoldface(const QString &content);
+    explicit Bold(const QString &content);
 };
 
 }

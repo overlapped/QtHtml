@@ -5,10 +5,10 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlParagraph : public QHtmlElement
+class QTHTML_EXPORT Paragraph : public Element
 {
 public:
-    explicit QHtmlParagraph(const QString &content);
+    explicit Paragraph(const QString &content);
 };
 
 }

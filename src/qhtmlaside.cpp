@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlAside::QHtmlAside(const QString &content) : QHtmlElement(HTML_TAG_ASIDE, content)
+Aside::Aside(const QString &content) : Element(HTML_TAG_ASIDE, content)
 {
 
 }

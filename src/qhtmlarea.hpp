@@ -5,7 +5,7 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlArea : public QHtmlElement
+class QTHTML_EXPORT Area : public Element
 {
 public:
     enum class Shape {
@@ -15,11 +15,11 @@ public:
         Default
     };
 
-    QHtmlArea();
+    Area();
 
-    QHtmlArea& setAlt(const QString &value);
-    QHtmlArea& setCoords(const QString &value);
-    QHtmlArea& setShape(Shape value);
+    Area& setAlt(const QString &value);
+    Area& setCoords(const QString &value);
+    Area& setShape(Shape value);
 };
 
 }

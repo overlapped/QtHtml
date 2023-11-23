@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlFooter::QHtmlFooter() : QHtmlElement(HTML_TAG_FOOTER, QVariant())
+Footer::Footer() : Element(HTML_TAG_FOOTER, QVariant())
 {
 
 }

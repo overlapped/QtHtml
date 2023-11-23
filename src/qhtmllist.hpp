@@ -5,23 +5,23 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlListItem : public QHtmlElement
+class QTHTML_EXPORT ListItem : public Element
 {
 public:
-    QHtmlListItem();
-    explicit QHtmlListItem(const QString& content);
+    ListItem();
+    explicit ListItem(const QString& content);
 
-    QHtmlListItem& operator << (const QHtmlElement& element);
+    ListItem& operator << (const Element& element);
 };
 
-class QTHTML_EXPORT QHtmlList : public QHtmlElement
+class QTHTML_EXPORT List : public Element
 {
 public:
-    explicit QHtmlList(bool isOrdered = false);
-    QHtmlList(bool isOrdered, const QString& classStyle);
+    explicit List(bool isOrdered = false);
+    List(bool isOrdered, const QString& classStyle);
 
-    QHtmlList& operator << (const QHtmlElement& element);
-    QHtmlList& operator << (const QHtmlListItem& item);
+    List& operator << (const Element& element);
+    List& operator << (const ListItem& item);
 };
 
 }

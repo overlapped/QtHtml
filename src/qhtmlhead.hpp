@@ -9,17 +9,17 @@
 
 namespace QtHtml {
 
-class QTHTML_EXPORT QHtmlHead : public QHtmlElement
+class QTHTML_EXPORT Head : public Element
 {
 public:
-    QHtmlHead();
+    Head();
 
-    QHtmlHead& operator << (QHtmlElement& element) = delete;
+    Head& operator << (Element& element) = delete;
 
-    QHtmlHead& operator << (const QHtmlTitle& title);
-    QHtmlHead& operator << (const QHtmlStyle& style);
-    QHtmlHead& operator << (const QHtmlMeta& meta);
-    QHtmlHead& operator << (const QHtmlLink& link);
+    Head& operator << (const Title& title);
+    Head& operator << (const Style& style);
+    Head& operator << (const Meta& meta);
+    Head& operator << (const Link& link);
 };
 
 }

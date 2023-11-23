@@ -5,49 +5,49 @@ int main()
 {
     using namespace QtHtml;
 
-    QHtmlDocument doc("Welcome to Qt Html!");
+    Document doc("Welcome to Qt Html!");
     doc.setLang("en");
-    QHtmlHead& head = doc.head();
-    QHtmlBody& body = doc.body();
+    Head& head = doc.head();
+    Body& body = doc.body();
 
-    head << QHtmlMeta("utf-8");
-    head << QHtmlMeta("viewport", "width=device-width, initial-scale=1, shrink-to-fit=no");
-    head << QHtmlMeta().setHttpEquiv(QHtmlMeta::HttpEquiv::Refresh, "3");
-    head << QHtmlStyle("{.navbar{margin-bottom:20px;}");
-    head << QHtmlLink("stylesheet", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+    head << Meta("utf-8");
+    head << Meta("viewport", "width=device-width, initial-scale=1, shrink-to-fit=no");
+    head << Meta().setHttpEquiv(Meta::HttpEquiv::Refresh, "3");
+    head << Style("{.navbar{margin-bottom:20px;}");
+    head << Link("stylesheet", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
     body.setClass("bg-light");
 
-    QHtmlList navList(false, "navbar-nav mr-auto");
-    navList << (QHtmlListItem().setClass("nav-item active") << QHtmlAnchor("Home", QUrl("#")).setClass("nav-link"));
-    navList << (QHtmlListItem().setClass("nav-item") << QHtmlAnchor("Link", QUrl("#")).setClass("nav-link"));
-    navList << (QHtmlListItem().setClass("nav-item") << QHtmlAnchor("Disabled", QUrl("#")).setClass("nav-link disabled"));
-    navList << (QHtmlListItem().setClass("nav-item dropdown")
-            << QHtmlAnchor("Dropdown", QUrl("#")).setClass("nav-link dropdown-toggle").setId("dropdown01").addAttribute("data-toggle", "dropdown").addAttribute("aria-haspopup", "true").addAttribute("aria-expanded", "false")
-            << (QHtmlDiv("dropdown-menu").addAttribute("aria-labelledby", "dropdown01")
-            << QHtmlAnchor("Action", QUrl("#")).setClass("dropdown-item")
-            << QHtmlAnchor("Other", QUrl("#")).setClass("dropdown-item")));
+    List navList(false, "navbar-nav mr-auto");
+    navList << (ListItem().setClass("nav-item active") << Anchor("Home", QUrl("#")).setClass("nav-link"));
+    navList << (ListItem().setClass("nav-item") << Anchor("Link", QUrl("#")).setClass("nav-link"));
+    navList << (ListItem().setClass("nav-item") << Anchor("Disabled", QUrl("#")).setClass("nav-link disabled"));
+    navList << (ListItem().setClass("nav-item dropdown")
+            << Anchor("Dropdown", QUrl("#")).setClass("nav-link dropdown-toggle").setId("dropdown01").addAttribute("data-toggle", "dropdown").addAttribute("aria-haspopup", "true").addAttribute("aria-expanded", "false")
+            << (Div("dropdown-menu").addAttribute("aria-labelledby", "dropdown01")
+            << Anchor("Action", QUrl("#")).setClass("dropdown-item")
+            << Anchor("Other", QUrl("#")).setClass("dropdown-item")));
 
-    doc << (QHtmlNav("navbar navbar-expand navbar-dark bg-dark") << QHtmlDiv("collapse navbar-collapse") << navList);
+    doc << (Nav("navbar navbar-expand navbar-dark bg-dark") << Div("collapse navbar-collapse") << navList);
 
-    QHtmlDiv main("container");
+    Div main("container");
 
-    main << QHtmlHeader1("Welcome to Qt Html!");
-    main << "Text directly in the body." << QHtmlLineBreak();
+    main << Header1("Welcome to Qt Html!");
+    main << "Text directly in the body." << LineBreak();
 
-    main << QHtmlParagraph("This is the way to go for a big text in a multi-line paragraph.");
-    main << QHtmlAnchor("Google", QUrl("http://google.com")).setClass("my_style");
+    main << Paragraph("This is the way to go for a big text in a multi-line paragraph.");
+    main << Anchor("Google", QUrl("http://google.com")).setClass("my_style");
 
-    main << (QHtmlTable().setClass("table table-hover table-sm")
-         << QHtmlCaption("Table caption")
-         << (QHtmlTableRow() << QHtmlTableHeader("A") << QHtmlTableHeader("B"))
-         << (QHtmlTableRow() << QHtmlTableDataCell("Cell 11") << QHtmlTableDataCell("Cell 12"))
-         << (QHtmlTableRow() << QHtmlTableDataCell("Cell 21") << QHtmlTableDataCell("Cell 22"))
-         << (QHtmlTableRow() << QHtmlTableDataCell("Cell 31") << (QHtmlTableDataCell() << QHtmlAnchor("Google", QUrl("http://www.google.com")))));
+    main << (Table().setClass("table table-hover table-sm")
+         << Caption("Table caption")
+         << (TableRow() << TableHeader("A") << TableHeader("B"))
+         << (TableRow() << TableDataCell("Cell 11") << TableDataCell("Cell 12"))
+         << (TableRow() << TableDataCell("Cell 21") << TableDataCell("Cell 22"))
+         << (TableRow() << TableDataCell("Cell 31") << (TableDataCell() << Anchor("Google", QUrl("http://www.google.com")))));
 
-    main << QHtmlLabel("txt1", "The text") << QHtmlTextArea("textform", "This is text...").setRequired().setPlaceHolder("The text").setId("txt1");
+    main << Label("txt1", "The text") << TextArea("textform", "This is text...").setRequired().setPlaceHolder("The text").setId("txt1");
 
-    main << QHtmlSmall("Copyright Serebryakov A. &copy; 2011-2023");
+    main << Small("Copyright Serebryakov A. &copy; 2011-2023");
 
     doc << main;
 

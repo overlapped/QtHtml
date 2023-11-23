@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-QHtmlProgress::QHtmlProgress(unsigned int value, unsigned int max, const QString &content) : QHtmlElement(HTML_TAG_PROGRESS, content)
+Progress::Progress(unsigned int value, unsigned int max, const QString &content) : Element(HTML_TAG_PROGRESS, content)
 {
     Q_ASSERT(value <= max);
     Q_ASSERT(max > 0);
@@ -12,7 +12,7 @@ QHtmlProgress::QHtmlProgress(unsigned int value, unsigned int max, const QString
     addAttribute("max", max);
 }
 
-QHtmlProgress &QHtmlProgress::setMax(unsigned int value)
+Progress &Progress::setMax(unsigned int value)
 {
     Q_ASSERT(value > 0);
 
