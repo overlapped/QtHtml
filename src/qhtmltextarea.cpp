@@ -30,15 +30,15 @@ TextArea::TextArea(const QString &name, const QString &content, unsigned int row
     }
 }
 
-TextArea &TextArea::setAutoComplete(bool isOn)
+TextArea &TextArea::setAutoComplete(bool value)
 {
-    addAttribute("autocomplete", isOn ? "true" : "false");
+    addAttribute("autocomplete", value ? "true" : "false");
     return *this;
 }
 
-TextArea &TextArea::setAutoFocus(bool isOn)
+TextArea &TextArea::setAutoFocus(bool value)
 {
-    addAttribute("autofocus", isOn ? "true" : "false");
+    addAttribute("autofocus", value ? "true" : "false");
     return *this;
 }
 
@@ -54,9 +54,9 @@ TextArea &TextArea::setColumns(unsigned int cols)
     return *this;
 }
 
-TextArea &TextArea::setDisabled(bool isOn)
+TextArea &TextArea::setDisabled(bool value)
 {
-    addAttribute("disabled", isOn ? "true" : "false");
+    addAttribute("disabled", value ? "true" : "false");
     return *this;
 }
 
@@ -84,15 +84,15 @@ TextArea &TextArea::setPlaceHolder(const QString &value)
     return *this;
 }
 
-TextArea &TextArea::setReadOnly(bool isOn)
+TextArea &TextArea::setReadOnly(bool value)
 {
-    addAttribute("readonly", isOn ? "true" : "false");
+    addAttribute("readonly", value ? "true" : "false");
     return *this;
 }
 
-TextArea &TextArea::setRequired(bool isOn)
+TextArea &TextArea::setRequired(bool value)
 {
-    if (isOn)
+    if (value)
     {
         addAttribute("required", QVariant());
     }

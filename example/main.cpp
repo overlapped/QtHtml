@@ -36,7 +36,7 @@ int main()
     main << "Text directly in the body." << LineBreak();
 
     main << Paragraph("This is the way to go for a big text in a multi-line paragraph.");
-    main << Address("CSS");
+    main << Address("CSS").setAccessKey("aaaaa").setAutoCapitalize(Element::AutoCapitalize::On).setClass("test").setId("id1").setStyle("test");
     main << Anchor("Google", QUrl("http://google.com")).setClass("my_style");
 
     main << (Table().setClass("table table-hover table-sm")
