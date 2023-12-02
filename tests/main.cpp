@@ -19,6 +19,9 @@ private slots:
     void testAddress_data();
     void testAddress();
 
+    void testTextArea_data();
+    void testTextArea();
+
     void testTime_data();
     void testTime();
 
@@ -51,7 +54,7 @@ void QtHtmlTests::testAbbreviation_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Abbreviation("HTML5").toString() << "<abbr>HTML5</abbr>\n";
+    QTest::newRow("simple") << QtHtml::Abbreviation("HTML5").toString().simplified() << "<abbr>HTML5</abbr>";
 }
 
 void QtHtmlTests::testAbbreviation()
@@ -67,10 +70,27 @@ void QtHtmlTests::testAddress_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Address("HTML5").toString() << "<address>HTML5</address>\n";
+    QTest::newRow("simple") << QtHtml::Address("HTML5").toString().simplified() << "<address>HTML5</address>";
 }
 
 void QtHtmlTests::testAddress()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testTextArea_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("simple") << QtHtml::TextArea("textform", "This is simple text.")
+                               .toString().simplified() << "<textarea cols=\"20\" name=\"textform\" rows=\"2\">This is simple text.</textarea>";
+}
+
+void QtHtmlTests::testTextArea()
 {
     QFETCH(QString, content);
     QFETCH(QString, result);
@@ -83,8 +103,8 @@ void QtHtmlTests::testTime_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple time") << QtHtml::Time("20:00", "20:00").toString() << "<time datetime=\"20:00\">20:00</time>\n";
-    QTest::newRow("simple date") << QtHtml::Time("2018-07-07", "July 7").toString() << "<time datetime=\"2018-07-07\">July 7</time>\n";
+    QTest::newRow("simple time") << QtHtml::Time("20:00", "20:00").toString().simplified() << "<time datetime=\"20:00\">20:00</time>";
+    QTest::newRow("simple date") << QtHtml::Time("2018-07-07", "July 7").toString().simplified() << "<time datetime=\"2018-07-07\">July 7</time>";
 }
 
 void QtHtmlTests::testTime()
@@ -100,7 +120,7 @@ void QtHtmlTests::testTitle_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Title("HTML5").toString() << "<title>HTML5</title>\n";
+    QTest::newRow("simple") << QtHtml::Title("HTML5").toString().simplified() << "<title>HTML5</title>";
 }
 
 void QtHtmlTests::testTitle()
