@@ -5,11 +5,22 @@
 
 namespace QtHtml {
 
+/**
+ * \brief The Style class represents \b style HTML element.
+ *
+ * The \<style\> HTML element contains style information for a document, or part of a document.
+ * It contains CSS, which is applied to the contents of the document containing the \<style\> element.
+ * The \<style\> element must be included inside the \<head\> of the document. In general, it is better
+ * to put your styles in external stylesheets and apply them using \<link\> elements.
+ */
 class QTHTML_EXPORT Style : public Element
 {
 public:
-    Style();
-    explicit Style(const QString &content);
+    /**
+     * \brief Default constructor to create object with \b content and \b date/time.
+     * \param[in] content - the title text string.
+     */
+    explicit Style(const QString &content = QString());
 };
 
 }
