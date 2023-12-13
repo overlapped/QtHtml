@@ -17,8 +17,8 @@ class QTHTML_EXPORT Style : public Element
 {
 public:
     /**
-     * \brief Default constructor to create object with \b content and \b date/time.
-     * \param[in] content - the title text string.
+     * \brief Default constructor to create object with \b content.
+     * \param[in] content - the text string.
      */
     explicit Style(const QString &content = QString());
 };
