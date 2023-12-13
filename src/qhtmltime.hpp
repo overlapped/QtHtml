@@ -20,6 +20,11 @@ namespace QtHtml {
 class QTHTML_EXPORT Time : public Element
 {
 public:
+    /**
+     * \brief Default constructor to create object with \b content and \b date/time.
+     * \param[in] dateTime - the date/time text string.
+     * \param[in] content - the title text string.
+     */
     explicit Time(const QString& dateTime, const QString &content);
 
     /**

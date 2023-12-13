@@ -3,19 +3,19 @@
 
 namespace QtHtml {
 
-Details::Details(const QString &content) : Element(HTML_TAG_DETAILS, content)
+Details::Details(bool value, const QString &content) : Element(HTML_TAG_DETAILS, content)
 {
-    if (!content.isEmpty())
+    if (value)
     {
-        addAttribute("open", content);
+        addAttribute("open", QVariant());
     }
 }
 
-Details &Details::setOpen(const QString &content)
+Details &Details::setOpened(bool value)
 {
-    if (!content.isEmpty())
+    if (value)
     {
-        addAttribute("open", content);
+        addAttribute("open", QVariant());
     }
 
     return *this;
