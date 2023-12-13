@@ -6,7 +6,7 @@
 namespace QtHtml {
 
 /**
- * @brief The Span class
+ * \brief The Span class represents \b span HTML element.
  *
  * The \<span\> HTML element is a generic inline container for phrasing content, which does
  * not inherently represent anything. It can be used to group elements for styling purposes
