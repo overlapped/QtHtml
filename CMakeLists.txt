@@ -83,11 +83,13 @@ SET(HEADERS
     src/qhtmlparagraph.hpp
     src/qhtmlpre.hpp
     src/qhtmlprogress.hpp
+    src/qhtmlquotation.hpp
     src/qhtmlscript.hpp
     src/qhtmlsection.hpp
     src/qhtmlform.hpp
     src/qhtmlsmall.hpp
     src/qhtmlspan.hpp
+    src/qhtmlstrikeout.hpp
     src/qhtmlstrong.hpp
     src/qhtmlstyle.hpp
     src/qhtmlsummary.hpp
@@ -128,11 +130,13 @@ SET(SOURCES
     src/qhtmlparagraph.cpp
     src/qhtmlpre.cpp
     src/qhtmlprogress.cpp
+    src/qhtmlquotation.cpp
     src/qhtmlscript.cpp
     src/qhtmlsection.cpp
     src/qhtmlform.cpp
     src/qhtmlsmall.cpp
     src/qhtmlspan.cpp
+    src/qhtmlstrikeout.cpp
     src/qhtmlstrong.cpp
     src/qhtmlstyle.cpp
     src/qhtmlsummary.cpp

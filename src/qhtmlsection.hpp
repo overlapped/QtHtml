@@ -20,6 +20,10 @@ namespace QtHtml {
 class QTHTML_EXPORT Section : public Element
 {
 public:
+    /**
+     * \brief Default constructor to create object with \b content.
+     * \param[in] content - the text string.
+     */
     Section();
 };
 
