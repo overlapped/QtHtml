@@ -6,7 +6,7 @@
 namespace QtHtml {
 
 /**
- * @brief The Progress class
+ * \brief The Progress class represents \b progress HTML element.
  *
  * The \<progress\> HTML element displays an indicator showing the completion progress of
  * a task, typically displayed as a progress bar.
