@@ -14,6 +14,12 @@ Meter::Meter(unsigned int value, unsigned int min, unsigned int max, const QStri
     addAttribute("max", max);
 }
 
+Meter &Meter::setValue(unsigned int value)
+{
+    addAttribute("value", value);
+    return *this;
+}
+
 Meter &Meter::setLow(unsigned int value)
 {
     addAttribute("low", value);
@@ -29,6 +35,24 @@ Meter &Meter::setHigh(unsigned int value)
 Meter &Meter::setOptimum(unsigned int value)
 {
     addAttribute("optimum", value);
+    return *this;
+}
+
+Meter &Meter::setMin(unsigned int value)
+{
+    addAttribute("min", value);
+    return *this;
+}
+
+Meter &Meter::setMax(unsigned int value)
+{
+    Q_ASSERT(value > 0);
+
+    if (value > 0)
+    {
+        addAttribute("max", value);
+    }
+
     return *this;
 }
 
