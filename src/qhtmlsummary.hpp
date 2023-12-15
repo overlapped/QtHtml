@@ -20,9 +20,9 @@ class QTHTML_EXPORT Details : public Element
 public:
     /**
      * \brief Default constructor to create object with \b content.
-     * \param[in] content - the title text string.
+     * \param[in] isOpened - set \b opened attribute if \c true, otherwise set closed.
      */
-    explicit Details(bool value = true, const QString &content = QString());
+    explicit Details(bool isOpened = true, const QString &content = QString());
 
     /**
      * \brief Set \b open attribute.

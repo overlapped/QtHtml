@@ -19,6 +19,9 @@ private slots:
     void testAddress_data();
     void testAddress();
 
+    void testSummaryDetails_data();
+    void testSummaryDetails();
+
     void testTextArea_data();
     void testTextArea();
 
@@ -54,7 +57,7 @@ void QtHtmlTests::testAbbreviation_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Abbreviation("HTML5").toString().simplified() << "<abbr>HTML5</abbr>";
+    QTest::newRow("Simple text") << QtHtml::Abbreviation("HTML5").toString().simplified() << "<abbr>HTML5</abbr>";
 }
 
 void QtHtmlTests::testAbbreviation()
@@ -70,10 +73,29 @@ void QtHtmlTests::testAddress_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Address("HTML5").toString().simplified() << "<address>HTML5</address>";
+    QTest::newRow("Simple text") << QtHtml::Address("HTML5").toString().simplified() << "<address>HTML5</address>";
 }
 
 void QtHtmlTests::testAddress()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testSummaryDetails_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Details closed") << (QtHtml::Details(false, "Details text.") << QtHtml::Summary("Summary text.")).toString().simplified()
+                                    << "<details>Details text.<summary>Summary text.</summary> </details>";
+    QTest::newRow("Details opened") << (QtHtml::Details(true, "Details text.") << QtHtml::Summary("Summary text.")).toString().simplified()
+                                    << "<details open>Details text.<summary>Summary text.</summary> </details>";
+}
+
+void QtHtmlTests::testSummaryDetails()
 {
     QFETCH(QString, content);
     QFETCH(QString, result);
@@ -86,7 +108,7 @@ void QtHtmlTests::testTextArea_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::TextArea("textform", "This is simple text.")
+    QTest::newRow("Simple text") << QtHtml::TextArea("textform", "This is simple text.")
                                .toString().simplified() << "<textarea cols=\"20\" name=\"textform\" rows=\"2\">This is simple text.</textarea>";
 }
 
@@ -103,8 +125,8 @@ void QtHtmlTests::testTime_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple time") << QtHtml::Time("20:00", "20:00").toString().simplified() << "<time datetime=\"20:00\">20:00</time>";
-    QTest::newRow("simple date") << QtHtml::Time("2018-07-07", "July 7").toString().simplified() << "<time datetime=\"2018-07-07\">July 7</time>";
+    QTest::newRow("Time") << QtHtml::Time("20:00", "20:00").toString().simplified() << "<time datetime=\"20:00\">20:00</time>";
+    QTest::newRow("Date") << QtHtml::Time("2018-07-07", "July 7").toString().simplified() << "<time datetime=\"2018-07-07\">July 7</time>";
 }
 
 void QtHtmlTests::testTime()
@@ -120,7 +142,7 @@ void QtHtmlTests::testTitle_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("simple") << QtHtml::Title("HTML5").toString().simplified() << "<title>HTML5</title>";
+    QTest::newRow("Simple text") << QtHtml::Title("HTML5").toString().simplified() << "<title>HTML5</title>";
 }
 
 void QtHtmlTests::testTitle()

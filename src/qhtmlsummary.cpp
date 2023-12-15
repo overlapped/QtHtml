@@ -3,9 +3,9 @@
 
 namespace QtHtml {
 
-Details::Details(bool value, const QString &content) : Element(HTML_TAG_DETAILS, content)
+Details::Details(bool isOpened, const QString &content) : Element(HTML_TAG_DETAILS, content)
 {
-    if (value)
+    if (isOpened)
     {
         addAttribute("open", QVariant());
     }

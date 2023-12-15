@@ -12,7 +12,7 @@ int main()
 
     head << Meta("utf-8");
     head << Meta("viewport", "width=device-width, initial-scale=1, shrink-to-fit=no");
-    head << Meta().setHttpEquiv(Meta::HttpEquiv::Refresh, "3");
+    head << Meta(Meta::HttpEquiv::Refresh, "3");
     head << Style("{.navbar{margin-bottom:20px;}");
     head << Link("stylesheet", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 

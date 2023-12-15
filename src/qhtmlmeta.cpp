@@ -20,29 +20,24 @@ QString HttpEquivToString(Meta::HttpEquiv value)
     return result;
 }
 
-Meta::Meta() : Element(HTML_TAG_META, QVariant())
-{
-
-}
-
-Meta::Meta(const QString &charset) : Element(HTML_TAG_META, QVariant())
+Meta::Meta(const QString& charset) : Element(HTML_TAG_META, QVariant())
 {
     selfClosed_ = true;
     addAttribute("charset", charset);
 }
 
-Meta::Meta(const QString &name, const QString &content) : Element(HTML_TAG_META, QVariant())
+Meta::Meta(const QString &name, const QString& content) : Element(HTML_TAG_META, QVariant())
 {
     selfClosed_ = true;
     addAttribute("name", name);
     addAttribute("content", content);
 }
 
-Meta &Meta::setHttpEquiv(HttpEquiv value, const QString& content)
+Meta::Meta(HttpEquiv value, const QString& content) : Element(HTML_TAG_META, QVariant())
 {
+    selfClosed_ = true;
     addAttribute("http-equiv", HttpEquivToString(value));
     addAttribute("content", content);
-    return *this;
 }
 
 }
