@@ -3,7 +3,7 @@
 
 namespace QtHtml {
 
-Mark::Mark(const QString &content) : Element(HTML_TAG_MAIN, content)
+Mark::Mark(const QString& content) : Element(HTML_TAG_MARK, content)
 {
 
 }

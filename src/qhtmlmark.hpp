@@ -5,10 +5,20 @@
 
 namespace QtHtml {
 
+/**
+ * \brief The Mark class represents \b mark HTML element.
+ *
+ * The \<mark\> HTML element represents text which is marked or highlighted for
+ * reference or notation purposes due to the marked passage's relevance in the enclosing context.
+ */
 class QTHTML_EXPORT Mark : public Element
 {
 public:
-    explicit Mark(const QString &content);
+    /**
+     * \brief Default constructor to create object with \b content.
+     * \param[in] content - the text string.
+     */
+    explicit Mark(const QString& content = QString());
 };
 
 }
