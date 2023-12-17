@@ -35,6 +35,7 @@ FIND_PACKAGE(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 OPTION(BUILD_EXAMPLE "Enable build example" OFF)
 OPTION(BUILD_TESTS "Enable build tests" OFF)
 OPTION(BUILD_DOC "Enable build documentation" OFF)
+OPTION(BUILD_BS5 "Enable build Bootstrap5" OFF)
 
 IF(BUILD_DOC)
     FIND_PACKAGE(Doxygen REQUIRED)
@@ -144,10 +145,17 @@ SET(SOURCES
     src/qhtmltextarea.cpp
     src/qhtmltime.cpp
     src/qhtmltitle.cpp
-    src/qhtmlutils.cpp
-    )
+    src/qhtmlutils.cpp)
 
-add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
+if (BUILD_BS5)
+SET(BOOTSTRAP5_HEADERS
+    src/Bootstrap5/qhtmlbutton_bs5.hpp
+    src/Bootstrap5/qhtmldefines_bs5.hpp)
+SET(BOOTSTRAP5_SOURCES
+    src/Bootstrap5/qhtmlbutton_bs5.cpp)
+endif(BUILD_BS5)
+
+add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS} ${BOOTSTRAP5_SOURCES} ${BOOTSTRAP5_HEADERS})
 generate_export_header(${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 14
@@ -155,10 +163,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_EXTENSIONS NO)
 set_source_files_properties(${SOURCES} PROPERTIES LANGUAGE CXX)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ./src)
+target_include_directories(${PROJECT_NAME} PUBLIC ./src ./src/Bootstrap5)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_compile_definitions(${PROJECT_NAME} PRIVATE QTHTML_LIBRARY)
 target_compile_options(${PROJECT_NAME} PRIVATE -fstack-protector-all)
+if (BUILD_BS5)
+target_compile_definitions(${PROJECT_NAME} PUBLIC QTHTMLBS5_LIBRARY)
+endif(BUILD_BS5)
 
 if (BUILD_EXAMPLE)
 add_executable(example example/main.cpp)

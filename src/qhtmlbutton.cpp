@@ -32,9 +32,9 @@ QString TypeToString(Button::Type value) {
     return result;
 }
 
-Button::Button(const QString &content) : Element(HTML_TAG_BUTTON, content)
+Button::Button(Button::Type type, const QString &content) : Element(HTML_TAG_BUTTON, content)
 {
-
+    setType(type);
 }
 
 Button &Button::setAutoFocus(bool value)
@@ -45,7 +45,8 @@ Button &Button::setAutoFocus(bool value)
 
 Button &Button::setDisabled(bool value)
 {
-    addAttribute(HTML_ATTR_BUTTON_DISABLED, value ? "true" : "false");
+    if (value) addAttribute(HTML_ATTR_BUTTON_DISABLED, QVariant());
+    else removeAttribute(HTML_ATTR_BUTTON_DISABLED);
     return *this;
 }
 

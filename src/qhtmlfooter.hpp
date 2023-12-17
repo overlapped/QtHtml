@@ -5,10 +5,20 @@
 
 namespace QtHtml {
 
+/**
+ * @brief The Footer class
+ *
+ * The \<footer\> HTML element represents a footer for its nearest ancestor sectioning
+ * content or sectioning root element. A \<footer\> typically contains information about
+ * the author of the section, copyright data or links to related documents.
+ */
 class QTHTML_EXPORT Footer : public Element
 {
 public:
-    Footer();
+    /**
+     * \brief Default constructor to create object.
+     */
+    explicit Footer();
 };
 
 }

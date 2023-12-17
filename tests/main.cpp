@@ -1,5 +1,8 @@
 #include <QtTest>
 #include <QHtmlWriter>
+#ifdef QTHTMLBS5_LIBRARY
+#include <QHtmlWriterBootstrap5>
+#endif
 
 class QtHtmlTests : public QObject
 {
@@ -19,6 +22,24 @@ private slots:
     void testAddress_data();
     void testAddress();
 
+    void testFooter_data();
+    void testFooter();
+
+    void testSmall_data();
+    void testSmall();
+
+    void testSpan_data();
+    void testSpan();
+
+    void testStrikeout_data();
+    void testStrikeout();
+
+    void testStrong_data();
+    void testStrong();
+
+    void testStyle_data();
+    void testStyle();
+
     void testSummaryDetails_data();
     void testSummaryDetails();
 
@@ -30,6 +51,11 @@ private slots:
 
     void testTitle_data();
     void testTitle();
+
+#ifdef QTHTMLBS5_LIBRARY
+    void testButtonBs5_data();
+    void testButtonBs5();
+#endif
 };
 
 QtHtmlTests::QtHtmlTests()
@@ -77,6 +103,103 @@ void QtHtmlTests::testAddress_data()
 }
 
 void QtHtmlTests::testAddress()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testFooter_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple tag") << QtHtml::Footer().toString().simplified() << "<footer></footer>";
+    QTest::newRow("Inside another") << (QtHtml::Footer() << QtHtml::Paragraph("HTML5")).toString().simplified() << "<footer> <p>HTML5</p> </footer>";
+}
+
+void QtHtmlTests::testFooter()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testSmall_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple text") << QtHtml::Small("HTML5").toString().simplified() << "<small>HTML5</small>";
+}
+
+void QtHtmlTests::testSmall()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testSpan_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple text") << QtHtml::Span("HTML5").toString().simplified() << "<span>HTML5</span>";
+}
+
+void QtHtmlTests::testSpan()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testStrikeout_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple text") << QtHtml::Strikeout("HTML5").toString().simplified() << "<s>HTML5</s>";
+}
+
+void QtHtmlTests::testStrikeout()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testStrong_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple text") << QtHtml::Strong("HTML5").toString().simplified() << "<strong>HTML5</strong>";
+}
+
+void QtHtmlTests::testStrong()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testStyle_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple text") << QtHtml::Style("p { color: #26b72b; }").toString().simplified() << "<style>p { color: #26b72b; }</style>";
+}
+
+void QtHtmlTests::testStyle()
 {
     QFETCH(QString, content);
     QFETCH(QString, result);
@@ -152,6 +275,26 @@ void QtHtmlTests::testTitle()
 
     QCOMPARE(content, result);
 }
+
+#ifdef QTHTMLBS5_LIBRARY
+void QtHtmlTests::testButtonBs5_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Type") << QtHtml::ButtonBs5(QtHtml::ButtonBs5::ButtonType::Info, "HTML5").toString().simplified() << "<button class=\"btn btn-info\" type=\"button\">HTML5</button>";
+    QTest::newRow("Size") << QtHtml::ButtonBs5(QtHtml::ButtonBs5::ButtonType::Info, "HTML5").setSize(QtHtml::ButtonBs5::ButtonSize::Small).toString().simplified()
+                          << "<button class=\"btn btn-sm btn-info\" type=\"button\">HTML5</button>";
+}
+
+void QtHtmlTests::testButtonBs5()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+#endif
 
 QTEST_APPLESS_MAIN(QtHtmlTests)
 

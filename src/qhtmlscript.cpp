@@ -11,9 +11,9 @@ Script::Script(const QString &srcFile, const QString &content) : Element(HTML_TA
     }
 }
 
-Script &Script::setAsync(bool isOn)
+Script &Script::setAsync(bool value)
 {
-    if (isOn)
+    if (value)
     {
         addAttribute("async");
     }
@@ -25,9 +25,9 @@ Script &Script::setAsync(bool isOn)
     return *this;
 }
 
-Script &Script::setDefer(bool isOn)
+Script &Script::setDefer(bool value)
 {
-    if (isOn)
+    if (value)
     {
         addAttribute("defer");
     }
@@ -49,9 +49,9 @@ Script &Script::setIntegrity(const QString &value)
     return *this;
 }
 
-Script &Script::setNoModule(bool isOn)
+Script &Script::setNoModule(bool value)
 {
-    if (isOn)
+    if (value)
     {
         addAttribute("nomodule");
     }

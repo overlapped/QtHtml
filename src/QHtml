@@ -36,6 +36,7 @@
 #include <qhtmlscript.hpp>
 #include <qhtmlsmall.hpp>
 #include <qhtmlspan.hpp>
+#include <qhtmlstrikeout.hpp>
 #include <qhtmlstrong.hpp>
 #include <qhtmlstyle.hpp>
 #include <qhtmlsummary.hpp>

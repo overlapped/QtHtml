@@ -8,22 +8,24 @@ namespace QtHtml {
 class QTHTML_EXPORT Button : public Element
 {
 public:
-    enum class PopOverTargetAction {
+    enum class PopOverTargetAction
+    {
         Hide,
         Show,
         Toggle
     };
 
-    enum class Type {
+    enum class Type
+    {
         Submit,
         Reset,
         Button
     };
 
-    explicit Button(const QString &content);
+    explicit Button(Type type = Type::Button, const QString &content = QString());
 
     Button& setAutoFocus(bool value);
-    Button& setDisabled(bool value);
+    Button& setDisabled(bool value = true);
     Button& setForm(const QString &value);
     Button& setFormAction(const QUrl &value);
     Button& setFormMethod(FormMethod value);
