@@ -41,6 +41,21 @@
 #define BS5_BUTTON_CLASS_SIZE_LARGE     "btn-lg"
 #define BS5_BUTTON_CLASS_SIZE_SMALL     "btn-sm"
 
+/**
+ * Bootstrap5 alert classes
+ */
+
+#define BS5_ALERT_CLASS_BASE           "alert"
+#define BS5_ALERT_CLASS_PRIMARY        "alert-primary"
+#define BS5_ALERT_CLASS_SECONDARY      "alert-secondary"
+#define BS5_ALERT_CLASS_SUCCESS        "alert-success"
+#define BS5_ALERT_CLASS_DANGER         "alert-danger"
+#define BS5_ALERT_CLASS_WARNING        "alert-warning"
+#define BS5_ALERT_CLASS_INFO           "alert-info"
+#define BS5_ALERT_CLASS_LIGHT          "alert-light"
+#define BS5_ALERT_CLASS_DARK           "alert-dark"
+#define BS5_ALERT_CLASS_LINK           "alert-link"
+
 typedef QMap<QString, QString> BS5ClassStyle;
 
 #endif // #ifndef __Q_HTML_DEFINES_BS5__

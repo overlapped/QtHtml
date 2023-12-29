@@ -53,6 +53,9 @@ private slots:
     void testTitle();
 
 #ifdef QTHTMLBS5_LIBRARY
+    void testAlertBs5_data();
+    void testAlertBs5();
+
     void testButtonBs5_data();
     void testButtonBs5();
 
@@ -280,6 +283,22 @@ void QtHtmlTests::testTitle()
 }
 
 #ifdef QTHTMLBS5_LIBRARY
+void QtHtmlTests::testAlertBs5_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple") << QtHtml::AlertBs5(QtHtml::AlertBs5::AlertType::Info, "HTML5").toString().simplified() << "<div class=\"alert alert-info\" role=\"alert\">HTML5</div>";
+}
+
+void QtHtmlTests::testAlertBs5()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
 void QtHtmlTests::testButtonBs5_data()
 {
     QTest::addColumn<QString>("content");

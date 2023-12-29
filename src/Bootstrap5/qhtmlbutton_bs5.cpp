@@ -1,4 +1,3 @@
-#include "qhtmldefines.hpp"
 #include "qhtmlbutton_bs5.hpp"
 
 namespace QtHtml {

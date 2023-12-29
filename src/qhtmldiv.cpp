@@ -8,9 +8,8 @@ Div::Div() : Element(HTML_TAG_DIVISION, QVariant())
 
 }
 
-Div::Div(const QString &content) : Element(HTML_TAG_DIVISION, QVariant())
+Div::Div(const QString &content) : Element(HTML_TAG_DIVISION, content)
 {
-    setClass(content);
 }
 
 }
