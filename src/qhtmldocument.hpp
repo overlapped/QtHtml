@@ -7,7 +7,7 @@
 
 namespace QtHtml {
 
-class Document : public Element
+class QTHTML_EXPORT Document : public Element
 {
 public:
     Document();

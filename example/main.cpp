@@ -1,4 +1,5 @@
 #include <QtCore/QDebug>
+#include <QtCore/QFile>
 #include <QHtmlWriter>
 
 int main()
@@ -30,33 +31,35 @@ int main()
 
     doc << (Nav("navbar navbar-expand navbar-dark bg-dark") << Div("collapse navbar-collapse") << navList);
 
-    Div main("container");
+    Div container("");
+    container.setClass("container");
 
-    main << Header1("Welcome to Qt Html!");
-    main << "Text directly in the body." << LineBreak();
+    container << Header1("Welcome to Qt Html!");
+    container << "Text directly in the body." << LineBreak();
 
-    main << Paragraph("This is the way to go for a big text in a multi-line paragraph.");
-    main << Address("CSS").setAccessKey("aaaaa").setAutoCapitalize(Element::AutoCapitalize::On).setClass("test").setId("id1").setStyle("test");
-    main << Anchor("Google", QUrl("http://google.com")).setClass("my_style");
+    container << Paragraph("This is the way to go for a big text in a multi-line paragraph.");
+    container << Address("CSS").setAccessKey("aaaaa").setAutoCapitalize(Element::AutoCapitalize::On).setClass("test").setId("id1").setStyle("test");
+    container << Anchor("Google", QUrl("http://google.com")).setClass("my_style");
 
-    main << (Table().setClass("table table-hover table-sm")
+    container << (Table().setClass("table table-hover table-sm")
          << Caption("Table caption")
          << (TableRow() << TableHeader("A") << TableHeader("B"))
          << (TableRow() << TableDataCell("Cell 11") << TableDataCell("Cell 12"))
          << (TableRow() << TableDataCell("Cell 21") << TableDataCell("Cell 22"))
          << (TableRow() << TableDataCell("Cell 31") << (TableDataCell() << Anchor("Google", QUrl("http://www.google.com")))));
 
-    main << Label("txt1", "The text") << TextArea("textform", "This is text...").setRequired().setPlaceHolder("The text").setId("txt1");
+    container << Label("txt1", "The text") << TextArea("textform", "This is text...").setRequired().setPlaceHolder("The text").setId("txt1");
 
-    main << Small("Copyright Serebryakov A. &copy; 2011-2023");
+    container << Small("Copyright Serebryakov A. &copy; 2011-2023");
 
-    doc << main;
+    doc << container;
 
-    QString str;
-    QTextStream os(&str);
-    os << doc;
-
-    qInfo().noquote() << str;
+    QFile file("example.html");
+    if (file.open(QFile::WriteOnly | QFile::Truncate))
+    {
+        QTextStream os(&file);
+        os << doc;
+    }
 
     return 0;
 }

@@ -9,7 +9,7 @@ class QTHTML_EXPORT Div : public Element
 {
 public:
     Div();
-    explicit Div(const QString &content = QString());
+    explicit Div(const QString &classStyle = QString());
 };
 
 }

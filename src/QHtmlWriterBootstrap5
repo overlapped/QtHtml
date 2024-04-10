@@ -1,3 +1,4 @@
 #include <Bootstrap5/qhtmlalert_bs5.hpp>
 #include <Bootstrap5/qhtmldefines_bs5.hpp>
 #include <Bootstrap5/qhtmlbutton_bs5.hpp>
+#include <Bootstrap5/qhtmlcontainer_bs5.hpp>

@@ -61,6 +61,9 @@ private slots:
 
     void testCloseButtonBs5_data();
     void testCloseButtonBs5();
+
+    void testContainerBs5_data();
+    void testContainerBs5();
 #endif
 };
 
@@ -326,6 +329,22 @@ void QtHtmlTests::testCloseButtonBs5_data()
 }
 
 void QtHtmlTests::testCloseButtonBs5()
+{
+    QFETCH(QString, content);
+    QFETCH(QString, result);
+
+    QCOMPARE(content, result);
+}
+
+void QtHtmlTests::testContainerBs5_data()
+{
+    QTest::addColumn<QString>("content");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("Simple") << QtHtml::CloseButtonBs5().toString().simplified() << "<button aria-label=\"Close\" class=\"btn-close\" type=\"button\"></button>";
+}
+
+void QtHtmlTests::testContainerBs5()
 {
     QFETCH(QString, content);
     QFETCH(QString, result);

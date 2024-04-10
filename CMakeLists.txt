@@ -151,10 +151,12 @@ if (BUILD_BS5)
 SET(BOOTSTRAP5_HEADERS
     src/Bootstrap5/qhtmlalert_bs5.hpp
     src/Bootstrap5/qhtmlbutton_bs5.hpp
-    src/Bootstrap5/qhtmldefines_bs5.hpp)
+    src/Bootstrap5/qhtmldefines_bs5.hpp
+    src/Bootstrap5/qhtmlcontainer_bs5.hpp)
 SET(BOOTSTRAP5_SOURCES
     src/Bootstrap5/qhtmlalert_bs5.cpp
-    src/Bootstrap5/qhtmlbutton_bs5.cpp)
+    src/Bootstrap5/qhtmlbutton_bs5.cpp
+    src/Bootstrap5/qhtmlcontainer_bs5.cpp)
 endif(BUILD_BS5)
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS} ${BOOTSTRAP5_SOURCES} ${BOOTSTRAP5_HEADERS})
