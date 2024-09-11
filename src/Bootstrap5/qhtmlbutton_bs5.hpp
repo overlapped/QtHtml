@@ -4,7 +4,7 @@
 #include "qhtmldefines_bs5.hpp"
 #include "qhtmlbutton.hpp"
 
-namespace QtHtml {
+namespace QtHtml { namespace Bootstrap5 {
 
 class QTHTML_EXPORT ButtonBs5 : public Button
 {
@@ -45,6 +45,6 @@ public:
     explicit CloseButtonBs5();
 };
 
-}
+}}
 
 #endif // #ifndef __Q_HTML_BUTTON_BS5__

@@ -203,6 +203,35 @@
 #define BS5_BORDER_CLASS_WIDTH_4            "border-4"
 #define BS5_BORDER_CLASS_WIDTH_5            "border-5"
 
+/**
+ * Bootstrap5 table classes
+ */
+
+#define BS5_TABLE_CLASS_BASE                "table"
+#define BS5_TABLE_CLASS_SMALL               "table-sm"
+#define BS5_TABLE_CLASS_MEDIUM              "table-md"
+#define BS5_TABLE_CLASS_LARGE               "table-lg"
+#define BS5_TABLE_CLASS_XL                  "table-xl"
+#define BS5_TABLE_CLASS_XXL                 "table-xxl"
+
+#define BS5_TABLE_CLASS_PRIMARY             "table-primary"
+#define BS5_TABLE_CLASS_SECONDARY           "table-secondary"
+#define BS5_TABLE_CLASS_SUCCESS             "table-success"
+#define BS5_TABLE_CLASS_DANGER              "table-danger"
+#define BS5_TABLE_CLASS_WARNING             "table-warning"
+#define BS5_TABLE_CLASS_INFO                "table-info"
+#define BS5_TABLE_CLASS_LIGHT               "table-light"
+#define BS5_TABLE_CLASS_DARK                "table-dark"
+
+#define BS5_TABLE_CLASS_STRIPED             "table-striped"
+#define BS5_TABLE_CLASS_STRIPED_COLUMNS     "table-striped-columns"
+#define BS5_TABLE_CLASS_HOVER               "table-hover"
+#define BS5_TABLE_CLASS_ACTIVE              "table-active"
+#define BS5_TABLE_CLASS_BORDERED            "table-bordered"
+#define BS5_TABLE_CLASS_BORDERLESS          "table-borderless"
+
+namespace QtHtml { namespace Bootstrap5 {
 typedef QMap<QString, QString> BS5ClassStyle;
+}}
 
 #endif // #ifndef __Q_HTML_DEFINES_BS5__

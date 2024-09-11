@@ -1,6 +1,6 @@
 #include "qhtmlbutton_bs5.hpp"
 
-namespace QtHtml {
+namespace QtHtml { namespace Bootstrap5 {
 
 QString ButtonTypeToString(ButtonBs5::ButtonType value) {
     QString result;
@@ -75,4 +75,4 @@ QString ButtonBs5::updateClassStyle()
     return styles.join(" ");
 }
 
-}
+}}

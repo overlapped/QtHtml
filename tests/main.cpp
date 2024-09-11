@@ -291,7 +291,7 @@ void QtHtmlTests::testAlertBs5_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("Simple") << QtHtml::AlertBs5(QtHtml::AlertBs5::AlertType::Info, "HTML5").toString().simplified() << "<div class=\"alert alert-info\" role=\"alert\">HTML5</div>";
+    QTest::newRow("Simple") << QtHtml::Bootstrap5::AlertBs5(QtHtml::Bootstrap5::AlertBs5::AlertType::Info, "HTML5").toString().simplified() << "<div class=\"alert alert-info\" role=\"alert\"></div>";
 }
 
 void QtHtmlTests::testAlertBs5()
@@ -307,8 +307,8 @@ void QtHtmlTests::testButtonBs5_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("Type") << QtHtml::ButtonBs5(QtHtml::ButtonBs5::ButtonType::Info, "HTML5").toString().simplified() << "<button class=\"btn btn-info\" type=\"button\">HTML5</button>";
-    QTest::newRow("Size") << QtHtml::ButtonBs5(QtHtml::ButtonBs5::ButtonType::Info, "HTML5").setSize(QtHtml::ButtonBs5::ButtonSize::Small).toString().simplified()
+    QTest::newRow("Type") << QtHtml::Bootstrap5::ButtonBs5(QtHtml::Bootstrap5::ButtonBs5::ButtonType::Info, "HTML5").toString().simplified() << "<button class=\"btn btn-info\" type=\"button\">HTML5</button>";
+    QTest::newRow("Size") << QtHtml::Bootstrap5::ButtonBs5(QtHtml::Bootstrap5::ButtonBs5::ButtonType::Info, "HTML5").setSize(QtHtml::Bootstrap5::ButtonBs5::ButtonSize::Small).toString().simplified()
                           << "<button class=\"btn btn-sm btn-info\" type=\"button\">HTML5</button>";
 }
 
@@ -325,7 +325,7 @@ void QtHtmlTests::testCloseButtonBs5_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("Simple") << QtHtml::CloseButtonBs5().toString().simplified() << "<button aria-label=\"Close\" class=\"btn-close\" type=\"button\"></button>";
+    QTest::newRow("Simple") << QtHtml::Bootstrap5::CloseButtonBs5().toString().simplified() << "<button aria-label=\"Close\" class=\"btn-close\" type=\"button\"></button>";
 }
 
 void QtHtmlTests::testCloseButtonBs5()
@@ -341,7 +341,7 @@ void QtHtmlTests::testContainerBs5_data()
     QTest::addColumn<QString>("content");
     QTest::addColumn<QString>("result");
 
-    QTest::newRow("Simple") << QtHtml::CloseButtonBs5().toString().simplified() << "<button aria-label=\"Close\" class=\"btn-close\" type=\"button\"></button>";
+    QTest::newRow("Simple") << QtHtml::Bootstrap5::CloseButtonBs5().toString().simplified() << "<button aria-label=\"Close\" class=\"btn-close\" type=\"button\"></button>";
 }
 
 void QtHtmlTests::testContainerBs5()
